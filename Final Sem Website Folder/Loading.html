@@ -66,7 +66,7 @@
         height: 100%;
         background-color: rgb(255, 166, 0);
         border-radius: 10px;
-        animation: load 8s linear forwards;
+        animation: fill-progress 8s linear forwards;
     }
 
     .content h1 {
@@ -74,7 +74,7 @@
         font-size: 30px;
     }
 
-    @keyframes load {
+    @keyframes fill-progress {
         from {
             width: 0%;
         }
@@ -97,7 +97,7 @@
                     <div class="content">
                         <div class="progressbarcontainer">
                             <div class="progress-bar">
-                                <img src="images/HD2icon.png"></img>
+                                <img id="Icon" src="images/HD2icon.png"></img>
                             </div>
                         </div>
                     </div>
@@ -109,6 +109,15 @@
 
 <script>
     gsap.from("#Logo", { opacity: 0, duration: 2 });
+    gsap.to("#Icon", {rotation: 360, duration: 8, ease: "linear", repeat: -1});
+    gsap.to(".progress-bar", {
+        width: "100%",
+        duration: 8,
+        ease: "linear",
+        onComplete: () => {
+            window.location.href = "Game.html"; // Redirect to Home.html after loading
+        }
+    });
 </script>
 
 </html>
