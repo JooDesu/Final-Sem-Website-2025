@@ -15,6 +15,7 @@
         margin: 0;
         padding: 0;
         background: black;
+        opacity:1;
     }
 
     #hd2video {
@@ -53,14 +54,14 @@
         margin-left: 10px;
     }
 
-    #Steam, #Playstation, #Xbox {
+    #Steam,
+    #Playstation,
+    #Xbox {
         width: 200px;
         height: 70px;
         float: right;
-        padding:5px;
+        padding: 5px;
     }
-
-
 </style>
 
 <body>
@@ -127,14 +128,16 @@
                             <img id="Steam" src="images/Steam Icon.png"></img></a>
                         <a href="https://www.playstation.com/en-tw/games/helldivers-2/">
                             <img id="Playstation" src="images/Playstation Icon.png"></img></a>
-                        <a href="https://www.xbox.com/en-US/games/helldivers-2">   
-                        <img id="Xbox" src="images/Xbox Icon.png"></img></a>
+                        <a href="https://www.xbox.com/en-US/games/helldivers-2">
+                            <img id="Xbox" src="images/Xbox Icon.png"></img></a>
                     </div>
                 </div>
             </div>
         </section>
     </footer>
-
 </body>
+<script>
+    gsap.from("body", { opacity: 0, duration: 1 });
+</script>
 
 </html>
