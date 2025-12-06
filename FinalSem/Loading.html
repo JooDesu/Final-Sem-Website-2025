@@ -109,13 +109,13 @@
 
 <script>
     gsap.from("#Logo", { opacity: 0, duration: 2 });
-    gsap.to("#Icon", {rotation: 360, duration: 8, ease: "linear", repeat: -1});
+    gsap.to("#Icon", {rotation: 360, duration: 8});
     gsap.to(".progress-bar", {
         width: "100%",
         duration: 8,
         ease: "linear",
         onComplete: () => {
-            window.location.href = "Game.html"; // Redirect to Home.html after loading
+            window.location.href = "Home.html"; // Redirect to Home.html after loading
         }
     });
 </script>
