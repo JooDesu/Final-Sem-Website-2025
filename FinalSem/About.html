@@ -14,15 +14,19 @@
 <style>
     body {
         margin: 0;
-        padding: 0;
-        background: black;
-        opacity:1;
+        background-color: black;
+        opacity: 1;
     }
 
     #WhiteLogo {
         width: 150px;
         height: 60px;
         margin-left: 10px;
+    }
+
+    #button {
+        width: 50px;
+        height: 50px;
     }
 
     h1 {
@@ -32,17 +36,58 @@
         padding: 5px;
     }
 
+    .contentarea {
+        max-width: 1680px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px;
+    }
+
     h2 {
-        color: rgb(255, 255, 255, 0.5);
+        color: white;
         font-family: fantasy;
-        font-size: 60px;
+        font-size: 40px;
         text-align: left;
-        margin-left: 10px;
+        padding-left: 30px;
+        padding-top: 80px;
+        padding-right: 30px;
+        padding-bottom: 2px;
+    }
+
+    h3 {
+        color: white;
+        font-size: 20px;
+        text-align: left;
+        font-family: monospace;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top:30px;
+    }
+
+    h4 {
+        color: white;
+        text-align: left;
+        font-family: monospace;
+        font-size: 20px;
+        padding-top: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        font-weight: bold;
+    }
+
+    .Info {
+        display: block;
+        border: 5px solid rgb(0, 0, 0);
+        border-radius: 20px;
+        padding: 10px;
+        background: linear-gradient(to bottom, rgb(255, 187, 0), rgb(255, 238, 0));
+        color: rgb(0, 0, 0);
     }
 </style>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark bg-opacity-25">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand">
                     <img id="WhiteLogo" src="Images/Helldiver2WhiteLogo.png" alt="Logo">
@@ -79,17 +124,213 @@
                                 <h1>Contact</h1>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <img src="images/Play Button.png" id="button"></img>
+
+                            <audio id="HelldiverMusic">
+                                <source src="Music/Aboutmusic.mp3" type="audio/mp3">
+                            </audio>
+                            <script>
+                                var music = document.getElementById("HelldiverMusic");
+                                var button = document.getElementById("button");
+
+                                button.onclick = function () {
+                                    if (HelldiverMusic.paused) {
+                                        HelldiverMusic.play();
+                                        button.src = "images/Pause Button.png";
+                                    } else {
+                                        HelldiverMusic.pause();
+                                        button.src = "images/Play Button.png";
+                                    }
+                                }
+                            </script>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="container-fluid d-flex justify-content-center mx-auto">
-            <img src="images/HD2Banner.jpg" alt="Banner" class="img-fluid"></img>
-        </div>
     </header>
 
-    <section id="content">
-        <div class="container-fluid">
-            
-        </div>
-    </section>
+    <main>
+        <section id="HD2picture">
+            <div class="container-fluid d-flex justify-content-center mx-auto">
+                <img id="banner" src="images/HD2Banner.jpg" alt="Banner" class="img-fluid"></img>
+            </div>
+        </section>
+        <section id="content" class="container-fluid col-12">
+            <div class="contentarea">
+                <div class="row">
+                    <div class="col-sm-6 p-5">
+                        <text id="text1">
+                            <h2>THE MINISTRY OF DEFENCE HAVE SOMETHING TO TELL</h2>
+                        <h3>Fellow new recruits,congratulations of becoming a Helldiver.
+                            Its time to spread our true peace,freedom and democracy.
+                            Liberate every single enemy territory that threaten the safety of Super Earth.</h3>
+                        <h4>WARNING ANY UNDEMOCRATIC BEHAVIOUR WILL BE TREATED AS TREASON!!!!</h4>
+                        </text>
+                    </div>
+                    <div class="col-sm-6 p-5">
+                        <img id="welcome" src="images/Welcome.jpg" class="img-fluid p-4"></img>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 p-5">
+                        <img id="team" src="images/Team.jpg" class="img-fluid p-4"></img>
+                    </div>
+                    <div class="col-sm-6 p-5">
+                        <text id="text2">
+                            <h2>CHAOTIC FUN IMMERSIVE AND AMAZING COOP EXPERIENCE</h2>
+                        <h3>Spreading Peace and Freedom alone maybe honourable but
+                            why not share the honour among other fellow Helldivers.
+                            Each Helldivers can cover each other weakness which enemies
+                            have no strategy to exploited weakness.
+                        </h3>
+                        <h4>FRIENDLY FIRE BEHAVIOUR ISNT IN YOUR TRAINING MANUAL</h4>
+                        </text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 p-5">
+                        <text id="text3">
+                        <h2>FACE OUR ENEMIES AND SHOW THEM NO MERCY</h2>
+                        <h3>Our enemy have continous expand their territory towards Super Earth.
+                            They are a threats towards our freedom and democracy.
+                            We as Helldivers should send them back to hell and let them have a taste of liber tea.
+                            No Bug,Bots or Squids can terrorise our freedom.</h3>
+                        <h4>NEVER TRUST ENEMIES PROPAGANDA</h4>
+                        </text>
+                    </div>
+                    <div class="col-sm-6 p-5">
+                        <img id="enemy" src="images/Enemies.jpg" class="img-fluid p-4">
+                    </img>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 p-5">
+
+                    </div>
+                    <div class="col-sm-6 p-5">
+                        <h2>DIVERSE WEAPON ARSENAL</h2>
+                        <h3>Ministry of Defence have conducted multiple weapon research to expand Helldivers Arsenals.
+                            It is encourage Helldivers to experiment different weapon,stratagem to best fit the
+                            situation.
+                            So feel free to use your enemies as test subject to spread liberty and democracy.
+                        </h3>
+                        <h4>ANY CRITICISM TOWARDS SUPEREARTH WEAPON WILL UNDERGOES STRICT REVIEW PROTOCALL</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 p-5">
+                        <h2>ARROWHEAD DEV TEAM</h2>
+                        <h3>We are dedicated to creating amazing coop-experience for our players.
+                            We created games that provide a memorable experience and
+                            can be retold time and time again.
+                            We emphasis on creating and manage the game with player centric mindset
+                            and we ensure we make a game that we ourselves would like to play.
+                        </h3>
+                        <h4>A GAME FOR EVERYONE IS A GAME FOR NO ONE</h4>
+                    </div>
+                    <div class="col-sm-6 p-5">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script>
+ gsap.from("body", { opacity: 0, duration: 1 });
+    // Register ScrollTrigger so gsap recognizes scroll-based triggers
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Optional: show markers while debugging, set to false for production
+    ScrollTrigger.defaults({ markers: true });
+
+    gsap.from("#text1", {
+        scrollTrigger: {
+            trigger: "#text1",
+            start: "top 50%",
+            end:"bottom 10%",
+            markers: true,
+            toggleActions: "play reverse play reverse"
+        },
+        x:-200,
+        opacity:0,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+    gsap.from("#welcome", {
+        scrollTrigger: {
+            trigger: "#welcome",
+            start: "top 50%",
+            end:"bottom 10%",
+            markers: true,
+            toggleActions: "play reverse play reverse"
+        },
+        x:-200,
+        opacity:0,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+    gsap.from("#text2", {
+        scrollTrigger: {
+            trigger: "#text2",
+            start: "top 80%",
+            end:"bottom 10%",
+            markers: true,
+            toggleActions: "play reverse play reverse"
+        },
+        x:-200,
+        opacity:0,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+    // Animate #team when scrolling to it (repeatable)
+    gsap.from("#team", {
+        scrollTrigger: {
+            trigger: "#team",
+            start: "top 80%",
+            end:"bottom 20%",
+            markers: true,
+            toggleActions: "play reverse play reverse"
+        },
+        x:-200,
+        opacity:0,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+    gsap.from("#enemy", {
+        scrollTrigger: {
+            trigger: "#enemy",
+            start: "top 80%",
+            end:"bottom 20%",
+            markers: true,
+            toggleActions: "play reverse play reverse"
+        },
+        x:-200,
+        opacity:0,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+    gsap.from("#text3", {
+        scrollTrigger: {
+            trigger: "#text3",
+            start: "top 80%",
+            end:"bottom 10%",
+            markers: true,
+            toggleActions: "play reverse play reverse"
+        },
+        x:-200,
+        opacity:0,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+
+
+</script>
+   

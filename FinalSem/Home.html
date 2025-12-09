@@ -54,6 +54,11 @@
         margin-left: 10px;
     }
 
+    #button {
+        width: 50px;
+        height: 50px;
+    }
+
     #Steam,
     #Playstation,
     #Xbox {
@@ -110,11 +115,33 @@
                                 <h1>Contact</h1>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <img src="images/Play Button.png" id="button"></img>
+
+                            <audio id="HelldiverMusic">
+                                <source src="Music/Homemusic.mp3" type="audio/mp3">
+                            </audio>
+                            <script>
+                                var music = document.getElementById("HelldiverMusic");
+                                var button = document.getElementById("button");
+
+                                button.onclick = function () {
+                                    if (HelldiverMusic.paused) {
+                                        HelldiverMusic.play();
+                                        button.src = "images/Pause Button.png";
+                                    } else {
+                                        HelldiverMusic.pause();
+                                        button.src = "images/Play Button.png";
+                                    }
+                                }
+                            </script>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <footer>
         <section id="bottomtext">
             <div class="container-fluid bg-transparent fixed-bottom">
@@ -139,5 +166,4 @@
 <script>
     gsap.from("body", { opacity: 0, duration: 1 });
 </script>
-
 </html>
