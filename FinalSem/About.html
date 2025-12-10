@@ -76,14 +76,13 @@
         font-weight: bold;
     }
 
-    .Info {
-        display: block;
-        border: 5px solid rgb(0, 0, 0);
-        border-radius: 20px;
-        padding: 10px;
-        background: linear-gradient(to bottom, rgb(255, 187, 0), rgb(255, 238, 0));
-        color: rgb(0, 0, 0);
+    #studio{
+        width:100px;
+        height:100px;
     }
+
+
+
 </style>
 <body>
     <header>
@@ -120,8 +119,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Contact.html">
-                                <h1>Contact</h1>
+                            <a class="nav-link" href="Report.html">
+                                <h1>Report Bug</h1>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -207,21 +206,24 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-6 p-5">
-
+                        <img id="weapons" src="images/Weapons.jpg" class="img-fluid p-4"></img>
                     </div>
                     <div class="col-sm-6 p-5">
-                        <h2>DIVERSE WEAPON ARSENAL</h2>
+                        <text id="text4">
+                            <h2>DIVERSE WEAPON ARSENAL</h2>
                         <h3>Ministry of Defence have conducted multiple weapon research to expand Helldivers Arsenals.
                             It is encourage Helldivers to experiment different weapon,stratagem to best fit the
                             situation.
                             So feel free to use your enemies as test subject to spread liberty and democracy.
                         </h3>
                         <h4>ANY CRITICISM TOWARDS SUPEREARTH WEAPON WILL UNDERGOES STRICT REVIEW PROTOCALL</h4>
+                        </text>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6 p-5">
-                        <h2>ARROWHEAD DEV TEAM</h2>
+                        <text id="text5">
+                            <h2>ARROWHEAD DEV TEAM</h2>
                         <h3>We are dedicated to creating amazing coop-experience for our players.
                             We created games that provide a memorable experience and
                             can be retold time and time again.
@@ -229,28 +231,37 @@
                             and we ensure we make a game that we ourselves would like to play.
                         </h3>
                         <h4>A GAME FOR EVERYONE IS A GAME FOR NO ONE</h4>
+                        </text>
                     </div>
                     <div class="col-sm-6 p-5">
+                        <img id="dev" src="images/Dev.jpg" class="img-fluid p-4"></img>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 </body>
+<footer>
+    <div class="container-fluid bg-dark bg-gradiant text-center p-3">
+        <a href="https://www.arrowheadgamestudios.com/aboutarrowhead/">
+            <img id="studio" src="images/ArrowheadStudio.png" class="img-fluid"></img>
+        </a>
+    </div>
+</footer>
 <script>
  gsap.from("body", { opacity: 0, duration: 1 });
     // Register ScrollTrigger so gsap recognizes scroll-based triggers
     gsap.registerPlugin(ScrollTrigger);
 
     // Optional: show markers while debugging, set to false for production
-    ScrollTrigger.defaults({ markers: true });
+    ScrollTrigger.defaults({ markers: false });
 
     gsap.from("#text1", {
         scrollTrigger: {
             trigger: "#text1",
             start: "top 50%",
             end:"bottom 10%",
-            markers: true,
+            markers: false,
             toggleActions: "play reverse play reverse"
         },
         x:-200,
@@ -264,7 +275,7 @@
             trigger: "#welcome",
             start: "top 50%",
             end:"bottom 10%",
-            markers: true,
+            markers: false,
             toggleActions: "play reverse play reverse"
         },
         x:-200,
@@ -278,7 +289,7 @@
             trigger: "#text2",
             start: "top 80%",
             end:"bottom 10%",
-            markers: true,
+            markers: false,
             toggleActions: "play reverse play reverse"
         },
         x:-200,
@@ -293,7 +304,7 @@
             trigger: "#team",
             start: "top 80%",
             end:"bottom 20%",
-            markers: true,
+            markers: false,
             toggleActions: "play reverse play reverse"
         },
         x:-200,
@@ -307,7 +318,7 @@
             trigger: "#enemy",
             start: "top 80%",
             end:"bottom 20%",
-            markers: true,
+            markers: false,
             toggleActions: "play reverse play reverse"
         },
         x:-200,
@@ -321,7 +332,7 @@
             trigger: "#text3",
             start: "top 80%",
             end:"bottom 10%",
-            markers: true,
+            markers: false,
             toggleActions: "play reverse play reverse"
         },
         x:-200,
@@ -329,6 +340,66 @@
         duration: 2,
         ease: "power2.out"
     });
+
+    gsap.from("#weapons", {
+        scrollTrigger: {
+            trigger: "#weapons",
+            start: "top 80%",
+            end:"bottom 10%",
+            markers: false,
+            toggleActions: "play reverse play reverse"
+        },
+        x:-200,
+        opacity:0,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+
+    gsap.from("#text4", {
+        scrollTrigger: {
+            trigger: "#text4",
+            start: "top 80%",
+            end:"bottom 10%",
+            markers: false,
+            toggleActions: "play reverse play reverse"
+        },
+        x:-200,
+        opacity:0,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+    gsap.from("#text5", {
+        scrollTrigger: {
+            trigger: "#text5",
+            start: "top 80%",
+            end:"bottom 10%",
+            markers: false,
+            toggleActions: "play reverse play reverse"
+        },
+        x:-200,
+        opacity:0,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+    gsap.from("#dev", {
+        scrollTrigger: {
+            trigger: "#dev",
+            start: "top 80%",
+            end:"bottom 10%",
+            markers: false,
+            toggleActions: "play reverse play reverse"
+        },
+        x:-200,
+        opacity:0,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+
+
 
 
 
