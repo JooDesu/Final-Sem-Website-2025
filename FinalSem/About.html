@@ -9,78 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <link href="css/About.css" rel="stylesheet">
 </head>
 
-<style>
-    body {
-        margin: 0;
-        background-color: black;
-        opacity: 1;
-    }
-
-    #WhiteLogo {
-        width: 150px;
-        height: 60px;
-        margin-left: 10px;
-    }
-
-    #button {
-        width: 50px;
-        height: 50px;
-    }
-
-    h1 {
-        color: white;
-        font-family: fantasy;
-        font-size: 20px;
-        padding: 5px;
-    }
-
-    .contentarea {
-        max-width: 1680px;
-        margin: 0 auto;
-        text-align: center;
-        padding: 10px;
-    }
-
-    h2 {
-        color: white;
-        font-family: fantasy;
-        font-size: 40px;
-        text-align: left;
-    }
-
-    h3 {
-        color: white;
-        font-size: 20px;
-        text-align: left;
-        font-family: monospace;
-    }
-
-    h4 {
-        color: white;
-        text-align: left;
-        font-family: monospace;
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    h5{
-        color: white;
-        font-family: monospace;
-        font-size: 20px;
-        text-align: center;
-
-    }
-
-    #studio{
-        width:100px;
-        height:100px;
-    }
-
-
-
-</style>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -142,95 +73,49 @@
         </nav>
     </header>
 
-    <main>
-        <section id="HD2picture">
-            <div class="container-fluid d-flex justify-content-center mx-auto">
-                <img id="banner" src="images/HD2Banner.jpg" alt="Banner" class="img-fluid"></img>
-            </div>
-        </section>
-        <section id="content" class="container-fluid col-12">
-            <div class="contentarea">
-                <div class="row">
-                    <div class="col-sm-6 p-5">
-                        <text id="text1">
-                            <h2>THE MINISTRY OF DEFENCE HAVE SOMETHING TO TELL</h2>
-                        <h3>Fellow new recruits,congratulations of becoming a Helldiver.
-                            Its time to spread our true peace,freedom and democracy.
-                            Liberate every single enemy territory that threaten the safety of Super Earth.</h3>
-                        <h4>WARNING ANY UNDEMOCRATIC BEHAVIOUR WILL BE TREATED AS TREASON!!!!</h4>
-                        </text>
-                    </div>
-                    <div class="col-sm-6">
-                        <img id="welcome" src="images/Welcome.jpg" class="img-fluid p-4"></img>
+    <div id="app">
+        <main>
+            <section id="HD2picture">
+                <div class="container-fluid d-flex justify-content-center mx-auto">
+                    <!-- mx is margin-left and right -->
+                    <img id="banner" :src="bannerSrc" alt="Banner" class="img-fluid">
+                </div>
+            </section>
+            <section id="content" class="container-fluid col-12">
+                <div class="contentarea">
+                    <div v-for="item in content" :key="item.textId" class="row">
+                        <!-- :key main used is to improve the identification to be more accurate if there is any changes made remove/add  -->
+                        <template v-if="item.contentfirst">
+                            <!-- item.contentfirst main use is to give an identification to identify the order of the content display to be first or not -->
+                            <div class="col-sm-6 p-5">
+                                <div :id="item.textId">
+                                    <h2>{{ item.title }}</h2>
+                                    <h3 class="pre-line">{{ item.desc }}</h3>
+                                    <h4>{{ item.warning }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <img :id="item.imgId" :src="item.imgSrc" :alt="item.imgAlt" class="img-fluid p-4">
+                            </div>
+                        </template>
+
+                        <template v-else>
+                            <div class="col-sm-6">
+                                <img :id="item.imgId" :src="item.imgSrc" :alt="item.imgAlt" class="img-fluid p-4">
+                            </div>
+                            <div class="col-sm-6 p-5">
+                                <div :id="item.textId">
+                                    <h2>{{ item.title }}</h2>
+                                    <h3 class="pre-line">{{ item.desc }}</h3>
+                                    <h4>{{ item.warning }}</h4>
+                                </div>
+                            </div>
+                        </template>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <img id="team" src="images/Team.jpg" class="img-fluid p-4"></img>
-                    </div>
-                    <div class="col-sm-6 p-5">
-                        <text id="text2">
-                            <h2>CHAOTIC FUN IMMERSIVE AND AMAZING COOP EXPERIENCE</h2>
-                        <h3>Spreading Peace and Freedom alone maybe honourable but
-                            why not share the honour among other fellow Helldivers.
-                            Each Helldivers can cover each other weakness which enemies
-                            have no strategy to exploited weakness.
-                        </h3>
-                        <h4>FRIENDLY FIRE BEHAVIOUR ISNT IN YOUR TRAINING MANUAL</h4>
-                        </text>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 p-5">
-                        <text id="text3">
-                        <h2>FACE OUR ENEMIES AND SHOW THEM NO MERCY</h2>
-                        <h3>Our enemy have continous expand their territory towards Super Earth.
-                            They are a threats towards our freedom and democracy.
-                            We as Helldivers should send them back to hell and let them have a taste of liber tea.
-                            No Bug,Bots or Squids can terrorise our freedom.</h3>
-                        <h4>NEVER TRUST ENEMIES PROPAGANDA</h4>
-                        </text>
-                    </div>
-                    <div class="col-sm-6">
-                        <img id="enemy" src="images/Enemies.jpg" class="img-fluid p-4">
-                    </img>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <img id="weapons" src="images/Weapons.jpg" class="img-fluid p-4"></img>
-                    </div>
-                    <div class="col-sm-6 p-5">
-                        <text id="text4">
-                            <h2>DIVERSE WEAPON ARSENAL</h2>
-                        <h3>Ministry of Defence have conducted multiple weapon research to expand Helldivers Arsenals.
-                            It is encourage Helldivers to experiment different weapon,stratagem to best fit the
-                            situation.
-                            So feel free to use your enemies as test subject to spread liberty and democracy.
-                        </h3>
-                        <h4>ANY CRITICISM TOWARDS SUPEREARTH WEAPON WILL UNDERGOES STRICT REVIEW PROTOCALL</h4>
-                        </text>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 p-5">
-                        <text id="text5">
-                        <h2>ARROWHEAD DEV TEAM</h2>
-                        <h3>The dev team consist of 100+ talented employees that is extremely skilled in creating
-                            fun,exciting and excellent cooperative experience games.
-                            Their game development always emphasis on create games that not only they will enjoy and have a blast
-                            with combine with listening to players feedback to improve the game further.
-                        </h3>
-                        <h4>THEIR FAMOUS QUOTE"A GAME FOR EVERYONE IS A GAME FOR NO ONE".</h4>
-                        </text>
-                    </div>
-                    <div class="col-sm-6 p-5">
-                        <img id="dev" src="images/Dev.jpg" class="img-fluid p-4"></img>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 </body>
 <footer>
     <div class="container-fluid bg-dark bg-gradiant text-center p-3">
@@ -238,153 +123,127 @@
         <h5>All assets belongs to the officials publisher:Arrowhead Studio and Sony Entertainment.</h5>
     </div>
 </footer>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script>
- gsap.from("body", { opacity: 0, duration: 1 });
+    const { createApp } = Vue;
+
+    const vm = createApp({
+        data() {
+            return {
+                bannerSrc: "images/HD2Banner.jpg",
+                content: [
+                    {
+                        textId: "text1",
+                        imgId: "welcome",
+                        imgSrc: "images/Welcome.jpg",
+                        imgAlt: "Welcome",
+                        contentfirst: true,
+                        title: "THE MINISTRY OF DEFENCE HAVE SOMETHING TO TELL",
+                        desc: "Fellow new recruits,congratulations of becoming a Helldiver.\nIts time to spread our true peace,freedom and democracy.\nLiberate every single enemy territory that threaten the safety of Super Earth.",
+                        warning: "WARNING ANY UNDEMOCRATIC BEHAVIOUR WILL BE TREATED AS TREASON!!!!",
+                        textStart: "top 50%",
+                        textEnd: "bottom 10%",
+                        imgStart: "top 50%",
+                        imgEnd: "bottom 10%"
+                    },
+                    {
+                        textId: "text2",
+                        imgId: "team",
+                        imgSrc: "images/Team.jpg",
+                        imgAlt: "Team",
+                        contentfirst: false,
+                        title: "CHAOTIC FUN IMMERSIVE AND AMAZING COOP EXPERIENCE",
+                        desc: "Spreading Peace and Freedom alone maybe honourable but\nwhy not share the honour among other fellow Helldivers.\nEach Helldivers can cover each other weakness which enemies\nhave no strategy to exploited weakness.",
+                        warning: "FRIENDLY FIRE BEHAVIOUR ISNT IN YOUR TRAINING MANUAL",
+                        textStart: "top 80%",
+                        textEnd: "bottom 10%",
+                        imgStart: "top 80%",
+                        imgEnd: "bottom 20%"
+                    },
+                    {
+                        textId: "text3",
+                        imgId: "enemy",
+                        imgSrc: "images/Enemies.jpg",
+                        imgAlt: "Enemies",
+                        contentfirst: true,
+                        title: "FACE OUR ENEMIES AND SHOW THEM NO MERCY",
+                        desc: "Our enemy have continous expand their territory towards Super Earth.\nThey are a threats towards our freedom and democracy.\nWe as Helldivers should send them back to hell and let them have a taste of liber tea.\nNo Bug,Bots or Squids can terrorise our freedom.",
+                        warning: "NEVER TRUST ENEMIES PROPAGANDA",
+                        textStart: "top 80%",
+                        textEnd: "bottom 10%",
+                        imgStart: "top 80%",
+                        imgEnd: "bottom 20%"
+                    },
+                    {
+                        textId: "text4",
+                        imgId: "weapons",
+                        imgSrc: "images/Weapons.jpg",
+                        imgAlt: "Weapons",
+                        contentfirst: false,
+                        title: "DIVERSE WEAPON ARSENAL",
+                        desc: "Ministry of Defence have conducted multiple weapon research to expand Helldivers Arsenals.\nIt is encourage Helldivers to experiment different weapon,stratagem to best fit the\nsituation.\nSo feel free to use your enemies as test subject to spread liberty and democracy.",
+                        warning: "ANY CRITICISM TOWARDS SUPEREARTH WEAPON WILL UNDERGOES STRICT REVIEW PROTOCALL",
+                        textStart: "top 80%",
+                        textEnd: "bottom 10%",
+                        imgStart: "top 80%",
+                        imgEnd: "bottom 10%"
+                    },
+                    {
+                        textId: "text5",
+                        imgId: "dev",
+                        imgSrc: "images/Dev.jpg",
+                        imgAlt: "Dev Team",
+                        contentfirst: true,
+                        title: "ARROWHEAD DEV TEAM",
+                        desc: "The dev team consist of 100+ talented employees that is extremely skilled in creating\nfun,exciting and excellent cooperative experience games.\nTheir game development always emphasis on create games that not only they will enjoy and have a blast\nwith combine with listening to players feedback to improve the game further.",
+                        warning: "THEIR FAMOUS QUOTE\"A GAME FOR EVERYONE IS A GAME FOR NO ONE\".",
+                        textStart: "top 80%",
+                        textEnd: "bottom 10%",
+                        imgStart: "top 80%",
+                        imgEnd: "bottom 10%"
+                    },
+                ]
+            };
+        }
+    }).mount("#app");
+
+    gsap.from("body", { opacity: 0, duration: 1 });
+
     // Register ScrollTrigger so gsap recognizes scroll-based triggers
     gsap.registerPlugin(ScrollTrigger);
 
     // Optional: show markers while debugging, set to false for production
     ScrollTrigger.defaults({ markers: false });
 
-    gsap.from("#text1", {
-        scrollTrigger: {
-            trigger: "#text1",
-            start: "top 50%",
-            end:"bottom 10%",
-            markers: false,
-            toggleActions: "play reverse play reverse"
-        },
-        x:-200,
-        opacity:0,
-        duration: 2,
-        ease: "power2.out"
-    });
+    vm.content.forEach((item) => {
+        // vm.content is used to access the content array in the Vue instance
+        // forEach is used to loop through each item in the content array
+        gsap.from(`#${item.textId}`, {
+            scrollTrigger: {
+                trigger: `#${item.textId}`,
+                start: item.textStart || "top 80%",
+                end: item.textEnd || "bottom 10%",
+                markers: false,
+                toggleActions: "play reverse play reverse"
+            },
+            x: -200,
+            opacity: 0,
+            duration: 2,
+            ease: "power2.out"
+        });
 
-    gsap.from("#welcome", {
-        scrollTrigger: {
-            trigger: "#welcome",
-            start: "top 50%",
-            end:"bottom 10%",
-            markers: false,
-            toggleActions: "play reverse play reverse"
-        },
-        x:-200,
-        opacity:0,
-        duration: 2,
-        ease: "power2.out"
-    });
-
-    gsap.from("#text2", {
-        scrollTrigger: {
-            trigger: "#text2",
-            start: "top 80%",
-            end:"bottom 10%",
-            markers: false,
-            toggleActions: "play reverse play reverse"
-        },
-        x:-200,
-        opacity:0,
-        duration: 2,
-        ease: "power2.out"
-    });
-
-    // Animate #team when scrolling to it (repeatable)
-    gsap.from("#team", {
-        scrollTrigger: {
-            trigger: "#team",
-            start: "top 80%",
-            end:"bottom 20%",
-            markers: false,
-            toggleActions: "play reverse play reverse"
-        },
-        x:-200,
-        opacity:0,
-        duration: 2,
-        ease: "power2.out"
-    });
-
-    gsap.from("#enemy", {
-        scrollTrigger: {
-            trigger: "#enemy",
-            start: "top 80%",
-            end:"bottom 20%",
-            markers: false,
-            toggleActions: "play reverse play reverse"
-        },
-        x:-200,
-        opacity:0,
-        duration: 2,
-        ease: "power2.out"
-    });
-
-    gsap.from("#text3", {
-        scrollTrigger: {
-            trigger: "#text3",
-            start: "top 80%",
-            end:"bottom 10%",
-            markers: false,
-            toggleActions: "play reverse play reverse"
-        },
-        x:-200,
-        opacity:0,
-        duration: 2,
-        ease: "power2.out"
-    });
-
-    gsap.from("#weapons", {
-        scrollTrigger: {
-            trigger: "#weapons",
-            start: "top 80%",
-            end:"bottom 10%",
-            markers: false,
-            toggleActions: "play reverse play reverse"
-        },
-        x:-200,
-        opacity:0,
-        duration: 2,
-        ease: "power2.out"
-    });
-
-
-    gsap.from("#text4", {
-        scrollTrigger: {
-            trigger: "#text4",
-            start: "top 80%",
-            end:"bottom 10%",
-            markers: false,
-            toggleActions: "play reverse play reverse"
-        },
-        x:-200,
-        opacity:0,
-        duration: 2,
-        ease: "power2.out"
-    });
-
-    gsap.from("#text5", {
-        scrollTrigger: {
-            trigger: "#text5",
-            start: "top 80%",
-            end:"bottom 10%",
-            markers: false,
-            toggleActions: "play reverse play reverse"
-        },
-        x:-200,
-        opacity:0,
-        duration: 2,
-        ease: "power2.out"
-    });
-
-    gsap.from("#dev", {
-        scrollTrigger: {
-            trigger: "#dev",
-            start: "top 80%",
-            end:"bottom 10%",
-            markers: false,
-            toggleActions: "play reverse play reverse"
-        },
-        x:-200,
-        opacity:0,
-        duration: 2,
-        ease: "power2.out"
+        gsap.from(`#${item.imgId}`, {
+            scrollTrigger: {
+                trigger: `#${item.imgId}`,
+                start: item.imgStart || "top 80%",
+                end: item.imgEnd || "bottom 10%",
+                markers: false,
+                toggleActions: "play reverse play reverse"
+            },
+            x: -200,
+            opacity: 0,
+            duration: 2,
+            ease: "power2.out"
+        });
     });
 </script>

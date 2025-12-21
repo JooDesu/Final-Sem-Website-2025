@@ -1,0 +1,73 @@
+body {
+        margin: 0;
+        background-color: black;
+        opacity: 1;
+    }
+
+    #WhiteLogo {
+        width: 150px;
+        height: 60px;
+        margin-left: 10px;
+    }
+
+    #button {
+        width: 50px;
+        height: 50px;
+    }
+
+    h1 {
+        color: white;
+        font-family: fantasy;
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    .contentarea {
+        max-width: 1680px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px;
+    }
+
+    h2 {
+        color: white;
+        font-family: fantasy;
+        font-size: 40px;
+        text-align: left;
+    }
+
+    h3 {
+        color: white;
+        font-size: 20px;
+        text-align: left;
+        font-family: monospace;
+    }
+
+    h4 {
+        color: white;
+        text-align: left;
+        font-family: monospace;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    h5{
+        color: white;
+        font-family: monospace;
+        font-size: 20px;
+        text-align: center;
+
+    }
+
+    #studio{
+        width:100px;
+        height:100px;
+    }
+
+
+
+    .pre-line {
+        white-space: pre-line;
+        /* pre-line is used to control how white space and line breaks are displayed */
+        /* \n is used for line breaks */
+    }
