@@ -73,7 +73,7 @@
         </nav>
     </header>
 
-    <div id="app">
+    <div id="aboutapp">
         <main>
             <section id="HD2picture">
                 <div class="container-fluid d-flex justify-content-center mx-auto">
@@ -120,14 +120,13 @@
 <footer>
     <div class="container-fluid bg-dark bg-gradiant text-center p-3">
         <h5>Disclaimer This Is An Unofficial Website.</h5>
-        <h5>All assets belongs to the officials publisher:Arrowhead Studio and Sony Entertainment.</h5>
+        <h5>All rights belongs to the officials publisher:Arrowhead Studio and Sony Interactive Entertainment.</h5>
+        <h5>If there is any issues feel free to contact me with the following email address: joodesu1234@gmail.com</h5>
     </div>
 </footer>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script>
-    const { createApp } = Vue;
-
-    const vm = createApp({
+    var vueApp = Vue.createApp({
         data() {
             return {
                 bannerSrc: "images/HD2Banner.jpg",
@@ -205,7 +204,7 @@
                 ]
             };
         }
-    }).mount("#app");
+    }).mount("#aboutapp");
 
     gsap.from("body", { opacity: 0, duration: 1 });
 
@@ -215,8 +214,8 @@
     // Optional: show markers while debugging, set to false for production
     ScrollTrigger.defaults({ markers: false });
 
-    vm.content.forEach((item) => {
-        // vm.content is used to access the content array in the Vue instance
+    vueApp.content.forEach((item) => {
+        // vueApp.content is used to access the content array in the Vue instance
         // forEach is used to loop through each item in the content array
         gsap.from(`#${item.textId}`, {
             scrollTrigger: {
