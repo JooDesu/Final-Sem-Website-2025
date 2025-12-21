@@ -20,6 +20,14 @@
         opacity: 1;
     }
 
+    /* Background for <section id="content"> */
+    #content{
+        background-image: url("images/BackgroundReport.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center top;
+    }
+
     #WhiteLogo {
         width: 150px;
         height: 60px;
@@ -82,7 +90,7 @@
 </style>
 
 <body>
-    <header>
+    <header >
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark bg-opacity-50">
             <div class="container-fluid">
                 <a class="navbar-brand">
@@ -143,7 +151,6 @@
     </header>
 
     <body>
-        <div class="side-banner left"></div>
         <section id="content">
             <div class="container">
                 <div class="row">
@@ -195,3 +202,7 @@
         <h4>If there is any issues feel free to contact me with the following email address: joodesu1234@gmail.com</h4 >
     </div>
 </footer>
+
+<script>
+    gsap.from("body", { opacity: 0, duration: 1 });
+</script>
