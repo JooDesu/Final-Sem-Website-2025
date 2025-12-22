@@ -78,7 +78,7 @@
             <section id="HD2picture">
                 <div class="container-fluid d-flex justify-content-center mx-auto">
                     <!-- mx is margin-left and right -->
-                    <img id="banner" :src="bannerSrc" alt="Banner" class="img-fluid">
+                    <img id="banner" :src="'images/'+bannerSrc" alt="Banner" class="img-fluid">
                 </div>
             </section>
             <section id="content" class="container-fluid col-12">
@@ -95,13 +95,13 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <img :id="item.imgId" :src="item.imgSrc" :alt="item.imgAlt" class="img-fluid p-4">
+                                <img :id="item.imgId" :src="'images/'+item.imgSrc" :alt="item.imgAlt" class="img-fluid p-4">
                             </div>
                         </template>
 
                         <template v-else>
                             <div class="col-sm-6">
-                                <img :id="item.imgId" :src="item.imgSrc" :alt="item.imgAlt" class="img-fluid p-4">
+                                <img :id="item.imgId" :src="'images/'+item.imgSrc" :alt="item.imgAlt" class="img-fluid p-4">
                             </div>
                             <div class="col-sm-6 p-5">
                                 <div :id="item.textId">
@@ -129,12 +129,12 @@
     var vueApp = Vue.createApp({
         data() {
             return {
-                bannerSrc: "images/HD2Banner.jpg",
+                bannerSrc: "HD2Banner.jpg",
                 content: [
                     {
                         textId: "text1",
                         imgId: "welcome",
-                        imgSrc: "images/Welcome.jpg",
+                        imgSrc: "Welcome.jpg",
                         imgAlt: "Welcome",
                         contentfirst: true,
                         title: "THE MINISTRY OF DEFENCE HAVE SOMETHING TO TELL",
@@ -148,7 +148,7 @@
                     {
                         textId: "text2",
                         imgId: "team",
-                        imgSrc: "images/Team.jpg",
+                        imgSrc: "Team.jpg",
                         imgAlt: "Team",
                         contentfirst: false,
                         title: "CHAOTIC FUN IMMERSIVE AND AMAZING COOP EXPERIENCE",
@@ -162,7 +162,7 @@
                     {
                         textId: "text3",
                         imgId: "enemy",
-                        imgSrc: "images/Enemies.jpg",
+                        imgSrc: "Enemies.jpg",
                         imgAlt: "Enemies",
                         contentfirst: true,
                         title: "FACE OUR ENEMIES AND SHOW THEM NO MERCY",
@@ -176,7 +176,7 @@
                     {
                         textId: "text4",
                         imgId: "weapons",
-                        imgSrc: "images/Weapons.jpg",
+                        imgSrc: "Weapons.jpg",
                         imgAlt: "Weapons",
                         contentfirst: false,
                         title: "DIVERSE WEAPON ARSENAL",
@@ -190,7 +190,7 @@
                     {
                         textId: "text5",
                         imgId: "dev",
-                        imgSrc: "images/Dev.jpg",
+                        imgSrc: "Dev.jpg",
                         imgAlt: "Dev Team",
                         contentfirst: true,
                         title: "ARROWHEAD DEV TEAM",
