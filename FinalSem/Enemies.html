@@ -9,10 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <link href="css/Home.css" rel="stylesheet">
 </head>
 <style>
-body {
+    body {
         margin: 0;
         padding: 0;
         background: black;
@@ -46,18 +47,79 @@ body {
         text-align: center;
     }
 
-    #button {
-        width: 50px;
-        height: 50px;
+    h3 {
+        color: white;
+        font-family: fantasy;
+        font-size: 50px;
+        padding: 10px;
+        text-align: center;
     }
 
+    h4 {
+        color: white;
+        font-family: monospace;
+        font-size: 20px;
+        padding: 10px;
+        text-align: left;
+    }
+
+    h5 {
+        color: white;
+        font-family: monospace;
+        font-size: 20px;
+        padding: 10px;
+        text-align: center;
+    }
+
+
+    .terminidscontent {
+        max-width: 1680px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .automatonscontent {
+        max-width: 1680px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .illuminatescontent {
+        max-width: 1680px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .pre-line{
+        white-space: pre-line;
+
+    }
+
+    #button {
+        width: 75px;
+        height: 75px;
+    }
+
+    #button2 {
+        width: 75px;
+        height: 75px;
+    }
+
+    #button3 {
+        width: 75px;
+        height: 75px;
+    }
 </style>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark bg-opacity-50">
             <div class="container-fluid">
                 <a class="navbar-brand">
-                    <img id="WhiteLogo" src="Images/Helldiver2WhiteLogo.png" alt="Logo">
+                    <img id="WhiteLogo" src="images/Helldiver2WhiteLogo.png" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#Helldiver2NavbarMenu">
@@ -86,42 +148,152 @@ body {
                                 <h1>Report Bugs</h1>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <img src="images/Play Button.png" id="button"></img>
-
-                            <audio id="HelldiverMusic">
-                                <source src="Music/Bug Theme.mp3" type="audio/mp3">
-                            </audio>
-                            <script>
-                                var music = document.getElementById("HelldiverMusic");
-                                var button = document.getElementById("button");
-
-                                button.onclick = function () {
-                                    if (HelldiverMusic.paused) {
-                                        HelldiverMusic.play();
-                                        button.src = "images/Pause Button.png";
-                                    } else {
-                                        HelldiverMusic.pause();
-                                        button.src = "images/Play Button.png";
-                                    }
-                                }
-                            </script>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
+    <div id="enemiesapp">
+        <main>
+        <section id="terminids" class="container-fluid col-12">
+            <div class="terminidscontent">
+                <div v-for="item in bugs" class="row">
+                    <div class="col-md-4 p-4">
+                        <img :id="item.icon" :src="'images/' + item.imgSrc" class="img-fluid" :alt="item.imgAlt">
+                        <h5>{{item.click}}</h5>
+                        <h5>{{item.warning}}</h5>
+
+                    </div>
+                    <div class="col-md-8 p-4">
+                        <h3>{{item.title}}
+                            <img src="images/TerminidsPlayIcon.png" id="button" alt="Play/Pause">
+                            <audio id="BugMusic">
+                                <source src="Music/Bug Theme.mp3" type="audio/mp3">
+                            </audio>
+                        </h3>
+                        <h4 class="pre-line">{{item.desc}}</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="automaton" class="container-fluid col-12">
+            <div class="automatonscontent">
+                <div v-for="item in bots" class="row">
+                    <div class="col-md-4 p-4">
+                        <img src="images/AutomatonIcon.png" class="img-fluid" alt="Automatons Icon">
+                        <h5>{{item.click}}</h5>
+                        <h5>{{item.warning}}</h5>
+                    </div>
+                    <div class="col-md-8 p-4">
+                        <h3>{{item.title}}
+                            <img src="images/AutomatonPlayIcon.png" id="button2" alt="Play/Pause">
+                            <audio id="BotMusic">
+                                <source src="Music/Bot Theme.mp3" type="audio/mp3">
+                            </audio>
+                        </h3>
+                        <h4 class="pre-line">{{item.desc}}</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="illuminates" class="container-fluid col-12">
+            <div class="illuminatescontent">
+                <div v-for="item in squids" class="row">
+                    <div class="col-md-4 p-4">
+                        <img src="images/IlluminatesIcon.png" class="img-fluid" alt="Illuminates Icon">
+                        <h5>{{item.click}}</h5>
+                        <h5>{{item.warning}}</h5>
+                    </div>
+                    <div class="col-md-8 p-4">
+                        <h3>{{item.title}}
+                            <img src="images/IlluminatesPlayIcon.png" id="button3" alt="Play/Pause">
+                            <audio id="SquidMusic">
+                                <source src="Music/Squid Theme.mp3" type="audio/mp3">
+                            </audio>
+                        </h3>
+                        <h4 class="pre-line">{{item.desc}}</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    </div>
+
     <footer>
         <div class="container-fluid bg-dark bg-gradiant text-center p-3">
-        <h2>Disclaimer This Is An Unofficial Website.</h2>
-        <h2>All rights belongs to the officials publisher:Arrowhead Studio and Sony Interactive Entertainment.</h2>
-        <h2>If there is any issues feel free to contact me with the following email address: joodesu1234@gmail.com</h2>
-    </div>
+            <h2>Disclaimer This Is An Unofficial Website.</h2>
+            <h2>All rights belongs to the officials publisher:Arrowhead Studio and Sony Interactive Entertainment.</h2>
+            <h2>If there is any issues feel free to contact me with the following email address: joodesu1234@gmail.com
+            </h2>
+        </div>
     </footer>
 </body>
 <script>
+     var vueApp = Vue.createApp({
+        data() {
+            return {
+                bugs: [
+                    {
+                        icon:"Bugicon",
+                        imgSrc:"TerminidsIcon.png",
+                        imgAlt:"Bugs",
+                        click:"Click The Image",
+                        warning:"Warning:ITS DANGEROUS",
+                        title:"Terminids,The Bugs",
+                        desc:"Terminids were sentient extraterrestrial species,similars to Earth insects.\nThey generate large amount of Element-710,similar to fossile fuel source.\nAttempt to extracts of the E-710 from their hive-world have triggered their aggression to attack extraction sites,and begin a war between the bugs and humanity.\nAfter the first war ended,the remaining small population of terminids are confined in asecure and controlled farms for extraction of the fuels.\nHowever,the terminids have develop new strains due to toxic chemical waste lead to creation of bile varients.\nAfter 100 years,the eastern sector terminids farm have been overrun and lead to outbreak of terminids,and the Second Galactic War begins.\nThey exceels in melee combat with their claws with a few exception of bile varients that will have acid spit attacks,they are experts in swarm tactics.",
+                    },
+                ],                
+                bots: [
+                    {
+                        icon:"Boticon",
+                        imgSrc:"AutomatonIcon.png",
+                        imgAlt:"Bots",
+                        click:"Click The Image",
+                        warning:"Warning:ITS DANGEROUS",
+                        title:"Automatons,The Robots",
+                        desc:"Cyborgs are known for their different athethics,cultural and obessions with manipulating their own bodies into machinenary.\nA war have started due to Super Earth suspect the involvement of the cyborgs bombing one of the Super Earth Districts and causes 8 civilian casualities.\nAfter the first war,they have surrendered and being enslave as labours for greater good of Super Earth and consentration camps to be reeducated.\nAutomatons are the descendants of Cyborg Nations.\nThey are created to continue fighting Super Earth and liberate the cyborgs from their enslavement.\nAlong side the terminids outbreak,the Automatons forces have made serveral incursion at the Serverin Sector.\nThey exceels in range combat combine with their advanced technology and weaponry.",
+                    },
+                ],
+                squids: [
+                    {
+                        icon:"Squidicon",
+                        imgSrc:"IlluminatesIcon.png",
+                        imgAlt:"Squids",
+                        click:"Click The Image",
+                        warning:"Warning:ITS DANGEROUS",
+                        title:"Illuminates,The Squids",
+                        desc:"The illuminates society are had endured several hundred thousand of years.\nThe illuminates approached Super Earth with peace offering,however Super Earth discovered their possession weapons that capable of destroying planets.\nSuper Earth justify their weapon as a reason to wage the first war with the illuminates and successfully defeat them.\nSuper Earth suspect they are extint after the first war,but some illuminates survivors fled to unknown spaces.\nDue to this revelation,the illuminates have alter their society and begin plotting revenge agaiunst Super Earth.\nThey have return with a vengence and begining invading Mega Cities that lead by elite Overseers and supported with swarms of Voteless.\nVoteless are Super Earth citizen that have abducted and mutated into mindless zombies.",
+                    },
+                ],
+            };
+        }
+    }).mount("#enemiesapp");
+
+    function wireAudioToggle(button, audio, playIcon, pauseIcon) {
+        // it is used to make a certain button img to link it with audio for play and pause
+        var audio = document.getElementById(audio);
+        var button = document.getElementById(button);
+        if (!audio || !button) return;
+        // If either the audio or button element is not found, exit the function
+        button.onclick = function () {
+            if (audio.paused) {
+                audio.play();
+                button.src = pauseIcon;
+            } else {
+                audio.pause();
+                button.src = playIcon;
+            }
+        };
+    }
+
+    wireAudioToggle("button", "BugMusic", "images/TerminidsPlayIcon.png", "images/TerminidsPauseIcon.png");
+    wireAudioToggle("button2", "BotMusic", "images/AutomatonPlayIcon.png", "images/AutomatonPauseIcon.png");
+    wireAudioToggle("button3", "SquidMusic", "images/IlluminatesPlayIcon.png", "images/IlluminatesPauseIcon.png");
+
     gsap.from("body", { opacity: 0, duration: 1 });
 </script>
+
 </html>
