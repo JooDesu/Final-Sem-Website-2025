@@ -93,7 +93,7 @@
         padding: 10px;
     }
 
-    .pre-line{
+    .pre-line {
         white-space: pre-line;
 
     }
@@ -111,6 +111,36 @@
     #button3 {
         width: 75px;
         height: 75px;
+    }
+
+    .burst {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .burst .main {
+        width: 400px;
+        height: 400px;
+        cursor: pointer;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+    }
+
+    .burst .sub {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 400px;
+        height: 400px;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        pointer-events: none;
+        /* 展開前不給點 */
     }
 </style>
 
@@ -156,70 +186,70 @@
 
     <div id="enemiesapp">
         <main>
-        <section id="terminids" class="container-fluid col-12">
-            <div class="terminidscontent">
-                <div v-for="item in bugs" class="row">
-                    <div class="col-md-4 p-4">
-                        <img :id="item.icon" :src="'images/' + item.imgSrc" class="img-fluid" :alt="item.imgAlt">
-                        <h5>{{item.click}}</h5>
-                        <h5>{{item.warning}}</h5>
-
+            <section id="terminids" class="container-fluid col-12">
+                <div class="terminidscontent">
+                    <div v-for="item in bugs" class="row">
+                        <div class="col-md-4 p-4">
+                            <img :id="item.icon" :src="'images/' + item.imgSrc" class="img-fluid" :alt="item.imgAlt">
+                        </div>
+                        <div class="col-md-8 p-4">
+                            <h3>{{item.title}}
+                                <img src="images/TerminidsPlayIcon.png" id="button" alt="Play/Pause">
+                                <audio id="BugMusic">
+                                    <source src="Music/Bug Theme.mp3" type="audio/mp3">
+                                </audio>
+                            </h3>
+                            <h4 class="pre-line">{{item.desc}}</h4>
+                        </div>
                     </div>
-                    <div class="col-md-8 p-4">
-                        <h3>{{item.title}}
-                            <img src="images/TerminidsPlayIcon.png" id="button" alt="Play/Pause">
-                            <audio id="BugMusic">
-                                <source src="Music/Bug Theme.mp3" type="audio/mp3">
-                            </audio>
-                        </h3>
-                        <h4 class="pre-line">{{item.desc}}</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="automaton" class="container-fluid col-12">
-            <div class="automatonscontent">
-                <div v-for="item in bots" class="row">
-                    <div class="col-md-4 p-4">
-                        <img src="images/AutomatonIcon.png" class="img-fluid" alt="Automatons Icon">
-                        <h5>{{item.click}}</h5>
-                        <h5>{{item.warning}}</h5>
-                    </div>
-                    <div class="col-md-8 p-4">
-                        <h3>{{item.title}}
-                            <img src="images/AutomatonPlayIcon.png" id="button2" alt="Play/Pause">
-                            <audio id="BotMusic">
-                                <source src="Music/Bot Theme.mp3" type="audio/mp3">
-                            </audio>
-                        </h3>
-                        <h4 class="pre-line">{{item.desc}}</h4>
+                    <div class="burst">
+                        <img src="images/HiveLord.png" class="main" alt="HiveLord">
+                        <img src="images/BahemothCharger.png" class="sub" alt="BahemothCharger">
+                        <img src="images/BileTitan.png" class="sub" alt="BileTitan">
+                        <img src="images/DragonRoach.png" class="sub" alt="DragonRoach">
+                        <img src="images/Stalker.png" class="sub" alt="Stalker">
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="illuminates" class="container-fluid col-12">
-            <div class="illuminatescontent">
-                <div v-for="item in squids" class="row">
-                    <div class="col-md-4 p-4">
-                        <img src="images/IlluminatesIcon.png" class="img-fluid" alt="Illuminates Icon">
-                        <h5>{{item.click}}</h5>
-                        <h5>{{item.warning}}</h5>
-                    </div>
-                    <div class="col-md-8 p-4">
-                        <h3>{{item.title}}
-                            <img src="images/IlluminatesPlayIcon.png" id="button3" alt="Play/Pause">
-                            <audio id="SquidMusic">
-                                <source src="Music/Squid Theme.mp3" type="audio/mp3">
-                            </audio>
-                        </h3>
-                        <h4 class="pre-line">{{item.desc}}</h4>
+            <section id="automaton" class="container-fluid col-12">
+                <div class="automatonscontent">
+                    <div v-for="item in bots" class="row">
+                        <div class="col-md-4 p-4">
+                            <img src="images/AutomatonIcon.png" class="img-fluid" alt="Automatons Icon">
+                        </div>
+                        <div class="col-md-8 p-4">
+                            <h3>{{item.title}}
+                                <img src="images/AutomatonPlayIcon.png" id="button2" alt="Play/Pause">
+                                <audio id="BotMusic">
+                                    <source src="Music/Bot Theme.mp3" type="audio/mp3">
+                                </audio>
+                            </h3>
+                            <h4 class="pre-line">{{item.desc}}</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+
+            <section id="illuminates" class="container-fluid col-12">
+                <div class="illuminatescontent">
+                    <div v-for="item in squids" class="row">
+                        <div class="col-md-4 p-4">
+                            <img src="images/IlluminatesIcon.png" class="img-fluid" alt="Illuminates Icon">
+                        </div>
+                        <div class="col-md-8 p-4">
+                            <h3>{{item.title}}
+                                <img src="images/IlluminatesPlayIcon.png" id="button3" alt="Play/Pause">
+                                <audio id="SquidMusic">
+                                    <source src="Music/Squid Theme.mp3" type="audio/mp3">
+                                </audio>
+                            </h3>
+                            <h4 class="pre-line">{{item.desc}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
     <footer>
@@ -232,40 +262,31 @@
     </footer>
 </body>
 <script>
-     var vueApp = Vue.createApp({
+    var vueApp = Vue.createApp({
         data() {
             return {
                 bugs: [
                     {
-                        icon:"Bugicon",
-                        imgSrc:"TerminidsIcon.png",
-                        imgAlt:"Bugs",
-                        click:"Click The Image",
-                        warning:"Warning:ITS DANGEROUS",
-                        title:"Terminids,The Bugs",
-                        desc:"Terminids were sentient extraterrestrial species,similars to Earth insects.\nThey generate large amount of Element-710,similar to fossile fuel source.\nAttempt to extracts of the E-710 from their hive-world have triggered their aggression to attack extraction sites,and begin a war between the bugs and humanity.\nAfter the first war ended,the remaining small population of terminids are confined in asecure and controlled farms for extraction of the fuels.\nHowever,the terminids have develop new strains due to toxic chemical waste lead to creation of bile varients.\nAfter 100 years,the eastern sector terminids farm have been overrun and lead to outbreak of terminids,and the Second Galactic War begins.\nThey exceels in melee combat with their claws with a few exception of bile varients that will have acid spit attacks,they are experts in swarm tactics.",
+                        imgSrc: "TerminidsIcon.png",
+                        imgAlt: "Bugs",
+                        title: "Terminids,The Bugs",
+                        desc: "Terminids were sentient extraterrestrial species,similars to Earth insects.\nThey generate large amount of Element-710,similar to fossile fuel source.\nAttempt to extracts of the E-710 from their hive-world have triggered their aggression to attack extraction sites,and begin a war between the bugs and humanity.\nAfter the first war ended,the remaining small population of terminids are confined in asecure and controlled farms for extraction of the fuels.\nHowever,the terminids have develop new strains due to toxic chemical waste lead to creation of bile varients.\nAfter 100 years,the eastern sector terminids farm have been overrun and lead to outbreak of terminids,and the Second Galactic War begins.\nThey exceels in melee combat with their claws with a few exception of bile varients that will have acid spit attacks,they are experts in swarm tactics.",
                     },
-                ],                
+                ],
                 bots: [
                     {
-                        icon:"Boticon",
-                        imgSrc:"AutomatonIcon.png",
-                        imgAlt:"Bots",
-                        click:"Click The Image",
-                        warning:"Warning:ITS DANGEROUS",
-                        title:"Automatons,The Robots",
-                        desc:"Cyborgs are known for their different athethics,cultural and obessions with manipulating their own bodies into machinenary.\nA war have started due to Super Earth suspect the involvement of the cyborgs bombing one of the Super Earth Districts and causes 8 civilian casualities.\nAfter the first war,they have surrendered and being enslave as labours for greater good of Super Earth and consentration camps to be reeducated.\nAutomatons are the descendants of Cyborg Nations.\nThey are created to continue fighting Super Earth and liberate the cyborgs from their enslavement.\nAlong side the terminids outbreak,the Automatons forces have made serveral incursion at the Serverin Sector.\nThey exceels in range combat combine with their advanced technology and weaponry.",
+                        imgSrc: "AutomatonIcon.png",
+                        imgAlt: "Bots",
+                        title: "Automatons,The Robots",
+                        desc: "Cyborgs are known for their different athethics,cultural and obessions with manipulating their own bodies into machinenary.\nA war have started due to Super Earth suspect the involvement of the cyborgs bombing one of the Super Earth Districts and causes 8 civilian casualities.\nAfter the first war,they have surrendered and being enslave as labours for greater good of Super Earth and consentration camps to be reeducated.\nAutomatons are the descendants of Cyborg Nations.\nThey are created to continue fighting Super Earth and liberate the cyborgs from their enslavement.\nAlong side the terminids outbreak,the Automatons forces have made serveral incursion at the Serverin Sector.\nThey exceels in range combat combine with their advanced technology and weaponry.",
                     },
                 ],
                 squids: [
                     {
-                        icon:"Squidicon",
-                        imgSrc:"IlluminatesIcon.png",
-                        imgAlt:"Squids",
-                        click:"Click The Image",
-                        warning:"Warning:ITS DANGEROUS",
-                        title:"Illuminates,The Squids",
-                        desc:"The illuminates society are had endured several hundred thousand of years.\nThe illuminates approached Super Earth with peace offering,however Super Earth discovered their possession weapons that capable of destroying planets.\nSuper Earth justify their weapon as a reason to wage the first war with the illuminates and successfully defeat them.\nSuper Earth suspect they are extint after the first war,but some illuminates survivors fled to unknown spaces.\nDue to this revelation,the illuminates have alter their society and begin plotting revenge agaiunst Super Earth.\nThey have return with a vengence and begining invading Mega Cities that lead by elite Overseers and supported with swarms of Voteless.\nVoteless are Super Earth citizen that have abducted and mutated into mindless zombies.",
+                        imgSrc: "IlluminatesIcon.png",
+                        imgAlt: "Squids",
+                        title: "Illuminates,The Squids",
+                        desc: "The illuminates society are had endured several hundred thousand of years.\nThe illuminates approached Super Earth with peace offering,however Super Earth discovered their possession weapons that capable of destroying planets.\nSuper Earth justify their weapon as a reason to wage the first war with the illuminates and successfully defeat them.\nSuper Earth suspect they are extint after the first war,but some illuminates survivors fled to unknown spaces.\nDue to this revelation,the illuminates have alter their society and begin plotting revenge agaiunst Super Earth.\nThey have return with a vengence and begining invading Mega Cities that lead by elite Overseers and supported with swarms of Voteless.\nVoteless are Super Earth citizen that have abducted and mutated into mindless zombies.",
                     },
                 ],
             };
@@ -294,6 +315,45 @@
     wireAudioToggle("button3", "SquidMusic", "images/IlluminatesPlayIcon.png", "images/IlluminatesPauseIcon.png");
 
     gsap.from("body", { opacity: 0, duration: 1 });
+
+    const main = document.querySelector(".burst .main");
+    const subs = gsap.utils.toArray(".burst .sub");
+
+    // 直線（水平）展開：往左右排成一列
+    const positions = [
+        { x: -700, y: 0 },
+        { x: -350, y: 0 },
+        { x: 350, y: 0 },
+        { x: 700, y: 0 },
+    ];
+
+    let opened = false;
+
+    // 先把縮圖“歸零”到主圖中心
+    gsap.set(subs, { x: 0, y: 0, scale: 0.6, opacity: 0 });
+
+    const tl = gsap.timeline({ paused: true, defaults: { duration: 0.5, ease: "power3.out" } });
+
+    tl.to(subs, {
+        opacity: 1,
+        scale: 1,
+        stagger: 0.06,
+        onStart: () => subs.forEach(el => el.style.pointerEvents = "auto")
+    }, 0);
+
+    // 分別飛到各自的位置
+    subs.forEach((el, i) => {
+        tl.to(el, { x: positions[i].x, y: positions[i].y }, 0);
+    });
+
+    main.addEventListener("click", () => {
+        opened = !opened;
+        if (opened) tl.play();
+        else {
+            subs.forEach(el => el.style.pointerEvents = "none");
+            tl.reverse();
+        }
+    });
 </script>
 
 </html>
