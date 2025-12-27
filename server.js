@@ -101,14 +101,6 @@ server.get("/about", async (req, res) => {
     res.json(results);
 });
 
-
-// serve the main static Home page at root
-server.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, 'FinalSem', 'Loading.html'));
-    // since the first main page name isnt index.html it will required to add a route tp accessit or change name to index.html
-});
-
-
 server.get("/report", async (req, res) => {
     const results = await ReportDB.find({}, {});
     res.json(results);
