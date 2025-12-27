@@ -112,36 +112,6 @@
         width: 75px;
         height: 75px;
     }
-
-    .burst {
-        position: relative;
-        width: 400px;
-        height: 400px;
-        margin: 0 auto;
-    }
-
-    .burst .main {
-        width: 400px;
-        height: 400px;
-        cursor: pointer;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        display: block;
-    }
-
-    .burst .sub {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 400px;
-        height: 400px;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        pointer-events: none;
-        /* 展開前不給點 */
-    }
 </style>
 
 <body>
@@ -189,10 +159,10 @@
             <section id="terminids" class="container-fluid col-12">
                 <div class="terminidscontent">
                     <div v-for="item in bugs" class="row">
-                        <div class="col-md-4 p-4">
+                        <div class="col-xl-12 col-xxl-4 p-4">
                             <img :id="item.icon" :src="'images/' + item.imgSrc" class="img-fluid" :alt="item.imgAlt">
                         </div>
-                        <div class="col-md-8 p-4">
+                        <div class="col-xl-12 col-xxl-8 p-4">
                             <h3>{{item.title}}
                                 <img src="images/TerminidsPlayIcon.png" id="button" alt="Play/Pause">
                                 <audio id="BugMusic">
@@ -202,23 +172,16 @@
                             <h4 class="pre-line">{{item.desc}}</h4>
                         </div>
                     </div>
-                    <div class="burst">
-                        <img src="images/HiveLord.png" class="main" alt="HiveLord">
-                        <img src="images/BahemothCharger.png" class="sub" alt="BahemothCharger">
-                        <img src="images/BileTitan.png" class="sub" alt="BileTitan">
-                        <img src="images/DragonRoach.png" class="sub" alt="DragonRoach">
-                        <img src="images/Stalker.png" class="sub" alt="Stalker">
-                    </div>
                 </div>
             </section>
 
             <section id="automaton" class="container-fluid col-12">
                 <div class="automatonscontent">
                     <div v-for="item in bots" class="row">
-                        <div class="col-md-4 p-4">
+                        <div class="col-xl-12 col-xxl-4 p-4">
                             <img src="images/AutomatonIcon.png" class="img-fluid" alt="Automatons Icon">
                         </div>
-                        <div class="col-md-8 p-4">
+                        <div class="col-xl-12 col-xxl-8 p-4">
                             <h3>{{item.title}}
                                 <img src="images/AutomatonPlayIcon.png" id="button2" alt="Play/Pause">
                                 <audio id="BotMusic">
@@ -234,10 +197,10 @@
             <section id="illuminates" class="container-fluid col-12">
                 <div class="illuminatescontent">
                     <div v-for="item in squids" class="row">
-                        <div class="col-md-4 p-4">
+                        <div class="col-xl-12 col-xxl-4 p-4">
                             <img src="images/IlluminatesIcon.png" class="img-fluid" alt="Illuminates Icon">
                         </div>
-                        <div class="col-md-8 p-4">
+                        <div class="col-xl-12 col-xxl-8 p-4">
                             <h3>{{item.title}}
                                 <img src="images/IlluminatesPlayIcon.png" id="button3" alt="Play/Pause">
                                 <audio id="SquidMusic">
@@ -316,44 +279,6 @@
 
     gsap.from("body", { opacity: 0, duration: 1 });
 
-    const main = document.querySelector(".burst .main");
-    const subs = gsap.utils.toArray(".burst .sub");
-
-    // 直線（水平）展開：往左右排成一列
-    const positions = [
-        { x: -700, y: 0 },
-        { x: -350, y: 0 },
-        { x: 350, y: 0 },
-        { x: 700, y: 0 },
-    ];
-
-    let opened = false;
-
-    // 先把縮圖“歸零”到主圖中心
-    gsap.set(subs, { x: 0, y: 0, scale: 0.6, opacity: 0 });
-
-    const tl = gsap.timeline({ paused: true, defaults: { duration: 0.5, ease: "power3.out" } });
-
-    tl.to(subs, {
-        opacity: 1,
-        scale: 1,
-        stagger: 0.06,
-        onStart: () => subs.forEach(el => el.style.pointerEvents = "auto")
-    }, 0);
-
-    // 分別飛到各自的位置
-    subs.forEach((el, i) => {
-        tl.to(el, { x: positions[i].x, y: positions[i].y }, 0);
-    });
-
-    main.addEventListener("click", () => {
-        opened = !opened;
-        if (opened) tl.play();
-        else {
-            subs.forEach(el => el.style.pointerEvents = "none");
-            tl.reverse();
-        }
-    });
-</script>
+ </script>
 
 </html>
