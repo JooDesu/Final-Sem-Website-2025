@@ -105,7 +105,7 @@ server.get("/about", async (req, res) => {
 // serve the main static Home page at root
 server.get('/', function(req, res){
     res.sendFile(path.join(__dirname, 'FinalSem', 'Loading.html'));
-    // since the first main page name isnt index.html it will required to add a route to accessit or change name to index.html
+    // since the first main page name isnt index.html it will required to add a route tp accessit or change name to index.html
 });
 
 
@@ -117,7 +117,7 @@ server.get("/report", async (req, res) => {
 
 server.post("/report", (req, res) =>{
     ReportDB.insert(req.body);
-    var upFile=req.files.Bugs;
+    var upFile=req.files.BugsImgandVideos;
     upFile.mv(__dirname+"/FinalSem/Uploads/"+upFile.name,function(err){
         if(err==null){
             res.render("msg",{message:"I got a file: "+upFile.name});
