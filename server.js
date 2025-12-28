@@ -109,7 +109,7 @@ server.get("/report", async (req, res) => {
 
 server.post("/report", (req, res) =>{
     ReportDB.insert(req.body);
-    var upFile=req.files.BugsImgandVideos;
+    var upFile=req.files.BugsFiles;
     upFile.mv(__dirname+"/FinalSem/Uploads/"+upFile.name,function(err){
         if(err==null){
             res.render("msg",{message:"I got a file: "+upFile.name});
@@ -119,9 +119,6 @@ server.post("/report", (req, res) =>{
     })
 })
 
-
 server.listen(8081, function(){
     console.log('Server listening on http://localhost:8081');
 });
-
-
