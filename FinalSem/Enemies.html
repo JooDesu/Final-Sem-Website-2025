@@ -86,7 +86,7 @@
                             <img id="Stalker" src="images/Stalker.png" class="img-fluid">
                         </div>
                         <div class="col-xl-12 col-xxl-6 p-4">
-                            <video id="Stalkervid" src="Videos/StalkerHD2.mp4" autoplay loop muted
+                            <video id="Stalkervid" src="Videos/Stalker.mp4" autoplay loop muted
                                 class="img-fluid"></video>
                         </div>
                         <h3>Bile Titans</h3>
@@ -173,6 +173,7 @@
         </div>
     </footer>
 </body>
+
 <script>
     var vueApp = Vue.createApp({
         data() {
@@ -269,12 +270,12 @@
     });
 
     gsap.from("#HiveLord", {
-        y: 120,
+        y:300,
         scaleY: 0.85,
         transformOrigin: "50% 100%", 
         // transform origin is used set the position to expand the size of the object/image
         opacity: 0,
-        duration: 1.5,
+        duration: 1,
         ease: "power3.out",
         // power.out have four type 1~4 the higher the number the faster the animation stop in at the end
         scrollTrigger: {
