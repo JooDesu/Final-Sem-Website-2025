@@ -204,11 +204,11 @@
                 end:"bottom 10%",
                 markers: false,
                 toggleActions: "play reverse play reverse"
+                // 1.Onenter,2.Onleave,3.Onenterback,4.Onleaveback
             },
             x: -200,
             opacity: 0,
             duration: 2,
-            ease: "power2.out"
         });
 
         gsap.from(`#${item.imgId}`, {
@@ -222,7 +222,6 @@
             x: -200,
             opacity: 0,
             duration: 2,
-            ease: "power2.out"
         });
     });
 </script>

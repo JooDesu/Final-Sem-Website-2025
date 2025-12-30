@@ -1,0 +1,98 @@
+body {
+        margin: 0;
+        padding: 0;
+        background: black;
+        opacity: 1;
+    }
+
+    #montage {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #WhiteLogo {
+        width: 150px;
+        height: 60px;
+        margin-left: 10px;
+    }
+
+    h1 {
+        color: white;
+        font-family: fantasy;
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    h2 {
+        color: white;
+        font-family: monospace;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    h3 {
+        color: white;
+        font-family: fantasy;
+        font-size: 50px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    h4 {
+        color: white;
+        font-family: monospace;
+        font-size: 20px;
+        padding: 10px;
+        text-align: left;
+    }
+
+    h5 {
+        color: white;
+        font-family: monospace;
+        font-size: 20px;
+        padding: 10px;
+        text-align: center;
+    }
+
+
+    .terminidscontent {
+        max-width: 1680px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .automatonscontent {
+        max-width: 1680px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .illuminatescontent {
+        max-width: 1680px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .pre-line {
+        white-space: pre-line;
+    }
+
+    #button {
+        width: 75px;
+        height: 75px;
+    }
+
+    #button2 {
+        width: 75px;
+        height: 75px;
+    }
+
+    #button3 {
+        width: 75px;
+        height: 75px;
+    }

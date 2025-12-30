@@ -5,7 +5,6 @@ body {
         opacity: 1;
     }
 
-    /* Background for <section id="content"> */
     #content{
         background-image: url("../images/BackgroundReport.png");
         background-size: cover;
@@ -61,10 +60,6 @@ body {
         color: black;
         font-family:fantasy;
         font-size:30px;
-    }
-
-    #reportform .btn.btn-xl:hover{
-        filter: brightness(1.05);
     }
 
     #button {

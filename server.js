@@ -112,9 +112,9 @@ server.post("/report", (req, res) =>{
     var upFile=req.files.BugsFiles;
     upFile.mv(__dirname+"/FinalSem/Uploads/"+upFile.name,function(err){
         if(err==null){
-            res.render("msg",{message:"I got a file: "+upFile.name});
+            res.render("msg",{message:"Report Submitted Successfully,We appreciate your effort in making Helldivers a better game!"});
         }else{
-            res.render("msg",{message:err});
+            res.render("msg",{message:"You are in a Jammer Zone.Report Submission Failed,Please try again later."});
         }
     })
 })
