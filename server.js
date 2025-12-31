@@ -8,8 +8,6 @@ server.set("views", __dirname+"/view")
 
 
 var fileUpload = require("express-fileupload")
-var path = require("path");
-
 
 server.use(express.static(__dirname + "/FinalSem"));
 server.use(bodyParser.urlencoded());
@@ -20,6 +18,7 @@ server.use(fileUpload({limits:{fileSize:2*1024*1024}}))
 var DB = require("nedb-promises");
 var ReportDB = DB.create(__dirname+"/Report.db");
 var AboutDB= DB.create(__dirname+"/About.db");
+var EnemiesDB= DB.create(__dirname+"/Enemies.db");
 
 
 // AboutDB.insert([
@@ -94,7 +93,6 @@ var AboutDB= DB.create(__dirname+"/About.db");
 //                         imgEnd: "bottom 10%"
 //                     },
 // ])
-
 
 server.get("/about", async (req, res) => {
     const results = await AboutDB.find({}, {});
