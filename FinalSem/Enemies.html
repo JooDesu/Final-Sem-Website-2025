@@ -211,10 +211,10 @@
                             <h4 class="text-center">They are also equipped with advanced shielding technology, making them difficult to destroy.</h4>
                         </div>
                         <div class="col-xl-12 col-xxl-6 p-4">
-                            <img id="FactoryStrider" src="images/Leviathan.png" class="img-fluid">
+                            <img id="Leviathan" src="images/Leviathan.png" class="img-fluid">
                         </div>
                         <div class="col-xl-12 col-xxl-6 p-4">
-                            <video id="FactorystriderVid" src="Videos/Leviathan.mp4" autoplay loop muted
+                            <video id="LeviathanVid" src="Videos/Leviathan.mp4" autoplay loop muted
                                 class="img-fluid"></video>
                         </div>
                     </div>
@@ -341,6 +341,60 @@
             trigger: "#HiveLord",
             start: "top 80%",
             toggleActions: "play none none reset"
+        }
+    });
+
+    gsap.from("#Hulks", {
+        y: -300,
+        opacity: 0,
+        duration: 2,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#Hulks",
+            start: "top 80%",
+            toggleActions: "play none none reset"
+        }
+    });
+
+    gsap.to("#FactoryStrider", {
+        x: -50,
+        y: 10,
+        rotation: -1.5,
+        duration: 1,
+        ease: "power4.out",
+        yoyo: true,
+        repeat: 1,
+        clearProps: "x,y,rotation",
+        scrollTrigger: {
+            trigger: "#FactoryStrider",
+            start: "top 80%",
+            toggleActions: "play none none reset"
+        }
+    });
+
+    gsap.from("#Fleshmobs", {
+        x:-300,
+        scale: 0.1,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#Fleshmobs",
+            start: "top 80%",
+            toggleActions: "play none none reset"
+        }
+    });
+
+    gsap.to("#Leviathan", {
+        y: -50,
+        rotation: 1,
+        duration: 2,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+        scrollTrigger: {
+            trigger: "#Leviathan",
+            start: "top 80%",
+            toggleActions: "play pause resume pause"
         }
     });
 </script>
