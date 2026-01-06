@@ -16,6 +16,7 @@ server.use(fileUpload({limits:{fileSize:2*1024*1024}}))
 server.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "FinalSem", "Index.html"));
 });
+// main use to identify which is the first web page to be loaded and shown in the webpage
 
 var DB = require("nedb-promises");
 var ReportDB = DB.create(__dirname+"/Report.db");
@@ -229,3 +230,4 @@ server.listen(PORT, HOST, function(){
     var displayHost = HOST === "0.0.0.0" ? "localhost" : HOST;
     console.log(`Server listening on http://${displayHost}:${PORT}`);
 });
+// main use for this section is to set the server IP address and port and display the server address in the console
