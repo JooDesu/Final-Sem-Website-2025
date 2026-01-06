@@ -1,6 +1,7 @@
 var express = require("express");
 var server = express();
 var bodyParser = require("body-parser");
+var path = require("path");
 
 server.set("view engine", 'ejs');
 server.set("views", __dirname+"/view")
@@ -11,6 +12,10 @@ server.use(express.static(__dirname + "/FinalSem"));
 server.use(bodyParser.urlencoded());
 server.use(bodyParser.json());
 server.use(fileUpload({limits:{fileSize:2*1024*1024}}))
+
+server.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "FinalSem", "Index.html"));
+});
 
 var DB = require("nedb-promises");
 var ReportDB = DB.create(__dirname+"/Report.db");
@@ -217,6 +222,10 @@ server.post("/report", (req, res) =>{
     })
 })
 
-server.listen(8081, function(){
-    console.log('Server listening on http://localhost:8081');
+var PORT = process.env.PORT || 8081;
+var HOST = process.env.HOST || "0.0.0.0";
+
+server.listen(PORT, HOST, function(){
+    var displayHost = HOST === "0.0.0.0" ? "localhost" : HOST;
+    console.log(`Server listening on http://${displayHost}:${PORT}`);
 });
