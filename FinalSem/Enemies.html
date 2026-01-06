@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -53,7 +52,7 @@
         </nav>
     </header>
 
-    <div id="enemiesapp">
+    <div id="enemy">
         <main>
             <section id="terminids" class="container-fluid col-12">
                 <div class="terminidscontent">
@@ -71,57 +70,22 @@
                             <h4 class="pre-line">{{item.desc}}</h4>
                         </div>
                     </div>
-                    <div class="row">
-                        <h3>Special Terminids</h3>
-                        <h3>Stalker</h3>
+                    <h3>Special Terminids</h3>
+                    <div v-for="bugId in specialBugs" class="row">
+                        <h3>{{bugId.name}}</h3>
                         <div class="container">
-                            <h4 class="text-center">Due to SuperEarth genetic tempering with the Hunters,they have
-                                mutated to gain the ability of camouflage themselves to hide themselves.</h4>
-                            <h4 class="text-center">When threaten,they can leap away from danger and prepare for the
-                                next attack.</h4>
-                            <h4 class="text-center">They have learn to ambush Helldivers with razorsharp claws,or use
-                                its tongue attack to knock down helldiver to make them even more vulnarble.</h4>
+                            <h4 class="pre-line text-center">{{bugId.description}}</h4>
                         </div>
                         <div class="col-xl-12 col-xxl-6 p-4">
-                            <img id="Stalker" src="images/Stalker.png" class="img-fluid">
+                            <img :id="bugId.imgId" :src="'images/' + bugId.imgSrc" class="img-fluid"
+                                :alt="bugId.imgAlt">
                         </div>
                         <div class="col-xl-12 col-xxl-6 p-4">
-                            <video id="Stalkervid" src="Videos/Stalker.mp4" autoplay loop muted
-                                class="img-fluid"></video>
-                        </div>
-                        <h3>Bile Titans</h3>
-                        <div class="container">
-                            <h4 class="text-center">Bile Titans are massive,heavily armoured terminids,which makes them
-                                impervious to light and medium pen firearms.</h4>
-                            <h4 class="text-center">Despite their sheer size,they can move quite quickly to catch up to
-                                helldivers.</h4>
-                            <h4 class="text-center">Their corrosive biles can melt through helldivers tough armour or
-                                crush them with their claws.</h4>
-                        </div>
-                        <div class="col-xl-12 col-xxl-6 p-4">
-                            <img id="BileTitan" src="images/BileTitan.png" class="img-fluid">
-                        </div>
-                        <div class="col-xl-12 col-xxl-6 p-4">
-                            <video id="BileTitanvid" src="Videos/Bile Titan.mp4" autoplay loop muted
-                                class="img-fluid"></video>
-                        </div>
-                        <h3>Hive Lords</h3>
-                        <div class="container">
-                            <h4 class="text-center">Hive Lords are one of the biggest Terminids,they usually traverse in
-                                the ground that cause massive quakes.</h4>
-                            <h4 class="text-center">Their armour is extremely durable make it resistance to most heavy
-                                weapons.</h4>
-                            <h4 class="text-center">They will ermerged from the ground to crush helldivers or spit
-                                vollies of corrosive bile</h4>
-                        </div>
-                        <div class="col-xl-12 col-xxl-6 p-4">
-                            <img id="HiveLord" src="images/HiveLord.png" class="img-fluid">
-                        </div>
-                        <div class="col-xl-12 col-xxl-6 p-4">
-                            <video id="Hivelordvid" src="Videos/Hivelord.mp4" autoplay loop muted
+                            <video :id="bugId.videoId" :src="'Videos/' + bugId.videoSrc" autoplay loop muted
                                 class="img-fluid"></video>
                         </div>
                     </div>
+                </div>
             </section>
 
             <section id="automaton" class="container-fluid col-12">
@@ -140,36 +104,20 @@
                             <h4 class="pre-line">{{item.desc}}</h4>
                         </div>
                     </div>
-                    <div class="row">
-                        <h3>Special Automatons</h3>
-                        <h3>Hulks</h3>
+                    <h3>Special Automatons</h3>
+                    <div v-for="botId in specialBots" class="row">
+                        <h3>{{botId.name}}</h3>
                         <div class="container">
-                            <h4 class="text-center">Hulks are heavily-armored siege walkers utilized by the Automatons that make them impervious to light and medium pen weapons.</h4>
-                            <h4 class="text-center">They are equipped with different weaponry that makes them excel in close or long range combat.</h4>
-                            <h4 class="text-center">Hulk bruisers that are armed with rapid fire cannons and rapid fire pulse cannons.</h4>
-                            <h4 class="text-center">Hulk scorchers are close range combatant that are armed with flamethrower and a buzzsaw and will aggressively try to close the distance.</h4>
+                            <h4 class="pre-line text-center">{{botId.description}}</h4>
                         </div>
                         <div class="col-xl-12 col-xxl-6 p-4">
-                            <img id="Hulks" src="images/Hulks.png" class="img-fluid">
+                            <img :id="botId.imgId" :src="'images/' + botId.imgSrc" class="img-fluid"
+                                :alt="botId.imgAlt">
                         </div>
                         <div class="col-xl-12 col-xxl-6 p-4">
-                            <video id="Hulkvid" src="Videos/Hulks.mp4" autoplay loop muted
+                            <video :id="botId.videoId" :src="'Videos/' + botId.videoSrc" autoplay loop muted
                                 class="img-fluid"></video>
                         </div>
-                        <h3>Factory Strider</h3>
-                        <div class="container">
-                            <h4 class="text-center">Factory Striders are currently the biggest automatons on the battlefield, its shell is enhanced with heavy plating and reinforced joints which make it resistance to heavy weaponry.</h4>
-                            <h4 class="text-center">They are equipped with a cannon on its back and its head is armed with 2 miniguns to attack Helldivers.</h4>
-                            <h4 class="text-center">They can also fabricate devastators to assist it in battle.</h4>
-                        </div>
-                        <div class="col-xl-12 col-xxl-6 p-4">
-                            <img id="FactoryStrider" src="images/FactoryStrider.png" class="img-fluid">
-                        </div>
-                        <div class="col-xl-12 col-xxl-6 p-4">
-                            <video id="FactorystriderVid" src="Videos/FactoryStrider.mp4" autoplay loop muted
-                                class="img-fluid"></video>
-                        </div>
-                    </div>
                 </div>
             </section>
 
@@ -189,32 +137,18 @@
                             <h4 class="pre-line">{{item.desc}}</h4>
                         </div>
                     </div>
-                    <div class="row">
-                        <h3>Special Illuminates</h3>
-                        <h3>Fleshmobs</h3>
+                    <h3>Special Illuminates</h3>
+                    <div v-for="squidId in specialSquids" class="row">
+                        <h3>{{squidId.name}}</h3>
                         <div class="container">
-                            <h4 class="text-center">The Fleshmobs are heavy illuminates units that the illuminates experimented with SuperEarth Citizen that have failed and created the grotesque abominations.</h4>
-                            <h4 class="text-center">They are slow while stumbling around the battlefield but they will charged towards Helldivers with surprising speed.</h4>
-                            <h4 class="text-center">They are most dangerous when they are hordes of voteless supporting it.</h4>
+                            <h4 class="pre-line text-center">{{squidId.description}}</h4>
                         </div>
                         <div class="col-xl-12 col-xxl-6 p-4">
-                            <img id="Fleshmobs" src="images/Fleshmobs.png" class="img-fluid">
+                            <img :id="squidId.imgId" :src="'images/' + squidId.imgSrc" class="img-fluid"
+                                :alt="squidId.imgAlt">
                         </div>
                         <div class="col-xl-12 col-xxl-6 p-4">
-                            <video id="FleshmobsVid" src="Videos/Fleshmobs.mp4" autoplay loop muted
-                                class="img-fluid"></video>
-                        </div>
-                        <h3>Leviathans</h3>
-                        <div class="container">
-                            <h4 class="text-center">Leviathans are massive illuminates airships.</h4>
-                            <h4 class="text-center">They are armed with 8 laser cannons that have increadible destructive powers.</h4>
-                            <h4 class="text-center">They are also equipped with advanced shielding technology, making them difficult to destroy.</h4>
-                        </div>
-                        <div class="col-xl-12 col-xxl-6 p-4">
-                            <img id="Leviathan" src="images/Leviathan.png" class="img-fluid">
-                        </div>
-                        <div class="col-xl-12 col-xxl-6 p-4">
-                            <video id="LeviathanVid" src="Videos/Leviathan.mp4" autoplay loop muted
+                            <video :id="squidId.videoId" :src="'Videos/' + squidId.videoSrc" autoplay loop muted
                                 class="img-fluid"></video>
                         </div>
                     </div>
@@ -232,42 +166,10 @@
         </div>
     </footer>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/enemies.js"></script>
 <script>
-    var vueApp = Vue.createApp({
-        data() {
-            return {
-                bugs: [
-                    {
-                        icon: "BugsIcon",
-                        imgSrc: "TerminidsIcon.png",
-                        imgAlt: "Bugs",
-                        title: "Terminids,The Bugs",
-                        desc: "Terminids were sentient extraterrestrial species,similars to Earth insects.\nThey generate large amount of Element-710,similar to fossile fuel source.\nAttempt to extracts of the E-710 from their hive-world have triggered their aggression to attack extraction sites,and begin a war between the bugs and humanity.\nAfter the first war ended,the remaining small population of terminids are confined in asecure and controlled farms for extraction of the fuels.\nHowever,the terminids have develop new strains due to toxic chemical waste lead to creation of bile varients.\nAfter 100 years,the eastern sector terminids farm have been overrun and lead to outbreak of terminids,and the Second Galactic War begins.\nThey exceels in melee combat with their claws with a few exception of bile varients that will have acid spit attacks,they are experts in swarm tactics.",
-                    },
-                ],
-                bots: [
-                    {
-                        icon: "BotsIcon",
-                        imgSrc: "AutomatonIcon.png",
-                        imgAlt: "Bots",
-                        title: "Automatons,The Robots",
-                        desc: "Cyborgs are known for their different athethics,cultural and obessions with manipulating their own bodies into machinenary.\nA war have started due to Super Earth suspect the involvement of the cyborgs bombing one of the Super Earth Districts and causes 8 civilian casualities.\nAfter the first war,they have surrendered and being enslave as labours for greater good of Super Earth and consentration camps to be reeducated.\nAutomatons are the descendants of Cyborg Nations.\nThey are created to continue fighting Super Earth and liberate the cyborgs from their enslavement.\nAlong side the terminids outbreak,the Automatons forces have made serveral incursion at the Serverin Sector.\nThey exceels in range combat combine with their advanced technology and weaponry.",
-                    },
-                ],
-                squids: [
-                    {
-                        icon: "SquidsIcon",
-                        imgSrc: "IlluminatesIcon.png",
-                        imgAlt: "Squids",
-                        title: "Illuminates,The Squids",
-                        desc: "The illuminates society are had endured several hundred thousand of years.\nThe illuminates approached Super Earth with peace offering,however Super Earth discovered their possession weapons that capable of destroying planets.\nSuper Earth justify their weapon as a reason to wage the first war with the illuminates and successfully defeat them.\nSuper Earth suspect they are extint after the first war,but some illuminates survivors fled to unknown spaces.\nDue to this revelation,the illuminates have alter their society and begin plotting revenge agaiunst Super Earth.\nThey have return with a vengence and begining invading Mega Cities that lead by elite Overseers and supported with swarms of Voteless.\nVoteless are Super Earth citizen that have abducted and mutated into mindless zombies.",
-                    },
-                ],
-            };
-        }
-    }).mount("#enemiesapp");
-
+    
     function wireAudioToggle(button, audio, playIcon, pauseIcon) {
         // it is used to make a certain button img to link it with audio for play and pause
         var audio = document.getElementById(audio);
@@ -329,9 +231,9 @@
     });
 
     gsap.from("#HiveLord", {
-        y:300,
+        y: 300,
         scaleY: 0.85,
-        transformOrigin: "50% 100%", 
+        transformOrigin: "50% 100%",
         // transform origin is used set the position to expand the size of the object/image
         opacity: 0,
         duration: 1,
@@ -373,7 +275,7 @@
     });
 
     gsap.from("#Fleshmobs", {
-        x:-300,
+        x: -300,
         scale: 0.1,
         duration: 1.5,
         ease: "power3.out",
