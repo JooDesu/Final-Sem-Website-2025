@@ -167,138 +167,139 @@
     </footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="js/enemies.js"></script>
 <script>
-    
-    function wireAudioToggle(button, audio, playIcon, pauseIcon) {
-        // it is used to make a certain button img to link it with audio for play and pause
-        var audio = document.getElementById(audio);
-        var button = document.getElementById(button);
-        if (!audio || !button) return;
-        // If either the audio or button element is not found, exit the function
-        button.onclick = function () {
-            if (audio.paused) {
-                audio.play();
-                button.src = pauseIcon;
-            } else {
-                audio.pause();
-                button.src = playIcon;
+    window.initEnemiesPage = function () {
+        function music(button, audio, playIcon, pauseIcon) {
+            // it is used to make a certain button img to link it with audio for play and pause
+            var audio = document.getElementById(audio);
+            var button = document.getElementById(button);
+            if (!audio || !button) return;
+            // If either the audio or button element is not found, exit the function
+            button.onclick = function () {
+                if (audio.paused) {
+                    audio.play();
+                    button.src = pauseIcon;
+                } else {
+                    audio.pause();
+                    button.src = playIcon;
+                }
+            };
+        }
+
+        music("button", "BugMusic", "images/TerminidsPlayIcon.png", "images/TerminidsPauseIcon.png");
+        music("button2", "BotMusic", "images/AutomatonPlayIcon.png", "images/AutomatonPauseIcon.png");
+        music("button3", "SquidMusic", "images/IlluminatesPlayIcon.png", "images/IlluminatesPauseIcon.png");
+
+        gsap.from("body", { opacity: 0, duration: 1 });
+        // from to put it simply is the beginning of an animation,to is the end of the animation
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.fromTo("#Stalker",
+            { opacity: 1 },
+            {
+                opacity: 0.25,
+                duration: 0.5,
+                yoyo: true,
+                // yoyo main use is to reverse the animation back and usually must pair with repeat that have a number or else it would not work
+                repeat: 3,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#Stalker",
+                    start: "top 80%",
+                    toggleActions: "play none none reset"
+                }
             }
-        };
-    }
+        );
 
-    wireAudioToggle("button", "BugMusic", "images/TerminidsPlayIcon.png", "images/TerminidsPauseIcon.png");
-    wireAudioToggle("button2", "BotMusic", "images/AutomatonPlayIcon.png", "images/AutomatonPauseIcon.png");
-    wireAudioToggle("button3", "SquidMusic", "images/IlluminatesPlayIcon.png", "images/IlluminatesPauseIcon.png");
-
-    gsap.from("body", { opacity: 0, duration: 1 });
-    // from to put it simply is the beginning of an animation,to is the end of the animation
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.fromTo("#Stalker",
-        { opacity: 1 },
-        {
-            opacity: 0.25,
+        gsap.to("#BileTitan", {
+            x: () => gsap.utils.random(-20, 20),
+            y: () => gsap.utils.random(-18, 18),
+            rotation: () => gsap.utils.random(-2, 2),
             duration: 0.5,
             yoyo: true,
-            // yoyo main use is to reverse the animation back and usually must pair with repeat that have a number or else it would not work
             repeat: 3,
             ease: "none",
+            clearProps: "x,y,rotation",
+            // clearprops is needed to ensure the img position would not be altered in anyway after the animation is finish most common uses either clearprops:x,y,rotation or clearprops:transform
             scrollTrigger: {
-                trigger: "#Stalker",
+                trigger: "#BileTitan",
                 start: "top 80%",
                 toggleActions: "play none none reset"
             }
-        }
-    );
+        });
 
-    gsap.to("#BileTitan", {
-        x: () => gsap.utils.random(-20, 20),
-        y: () => gsap.utils.random(-18, 18),
-        rotation: () => gsap.utils.random(-2, 2),
-        duration: 0.5,
-        yoyo: true,
-        repeat: 3,
-        ease: "none",
-        clearProps: "x,y,rotation",
-        // clearprops is needed to ensure the img position would not be altered in anyway after the animation is finish most common uses either clearprops:x,y,rotation or clearprops:transform
-        scrollTrigger: {
-            trigger: "#BileTitan",
-            start: "top 80%",
-            toggleActions: "play none none reset"
-        }
-    });
+        gsap.from("#HiveLord", {
+            y: 300,
+            scaleY: 0.85,
+            transformOrigin: "50% 100%",
+            // transform origin is used set the position to expand the size of the object/image
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+            // power.out have four type 1~4 the higher the number the faster the animation stop in at the end
+            scrollTrigger: {
+                trigger: "#HiveLord",
+                start: "top 80%",
+                toggleActions: "play none none reset"
+            }
+        });
 
-    gsap.from("#HiveLord", {
-        y: 300,
-        scaleY: 0.85,
-        transformOrigin: "50% 100%",
-        // transform origin is used set the position to expand the size of the object/image
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        // power.out have four type 1~4 the higher the number the faster the animation stop in at the end
-        scrollTrigger: {
-            trigger: "#HiveLord",
-            start: "top 80%",
-            toggleActions: "play none none reset"
-        }
-    });
+        gsap.from("#Hulks", {
+            y: -300,
+            opacity: 0,
+            duration: 2,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: "#Hulks",
+                start: "top 80%",
+                toggleActions: "play none none reset"
+            }
+        });
 
-    gsap.from("#Hulks", {
-        y: -300,
-        opacity: 0,
-        duration: 2,
-        ease: "power3.out",
-        scrollTrigger: {
-            trigger: "#Hulks",
-            start: "top 80%",
-            toggleActions: "play none none reset"
-        }
-    });
+        gsap.to("#FactoryStrider", {
+            x: -50,
+            y: 10,
+            rotation: -1.5,
+            duration: 1,
+            ease: "power4.out",
+            yoyo: true,
+            repeat: 1,
+            clearProps: "x,y,rotation",
+            scrollTrigger: {
+                trigger: "#FactoryStrider",
+                start: "top 80%",
+                toggleActions: "play none none reset"
+            }
+        });
 
-    gsap.to("#FactoryStrider", {
-        x: -50,
-        y: 10,
-        rotation: -1.5,
-        duration: 1,
-        ease: "power4.out",
-        yoyo: true,
-        repeat: 1,
-        clearProps: "x,y,rotation",
-        scrollTrigger: {
-            trigger: "#FactoryStrider",
-            start: "top 80%",
-            toggleActions: "play none none reset"
-        }
-    });
+        gsap.from("#Fleshmobs", {
+            x: -300,
+            scale: 0.1,
+            duration: 1.5,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: "#Fleshmobs",
+                start: "top 80%",
+                toggleActions: "play none none reset"
+            }
+        });
 
-    gsap.from("#Fleshmobs", {
-        x: -300,
-        scale: 0.1,
-        duration: 1.5,
-        ease: "power3.out",
-        scrollTrigger: {
-            trigger: "#Fleshmobs",
-            start: "top 80%",
-            toggleActions: "play none none reset"
-        }
-    });
-
-    gsap.to("#Leviathan", {
-        y: -50,
-        rotation: 1,
-        duration: 2,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1,
-        scrollTrigger: {
-            trigger: "#Leviathan",
-            start: "top 80%",
-            toggleActions: "play pause resume pause"
-        }
-    });
+        gsap.to("#Leviathan", {
+            y: -50,
+            rotation: 1,
+            duration: 2,
+            ease: "power2.inOut",
+            yoyo: true,
+            repeat: -1,
+            scrollTrigger: {
+                trigger: "#Leviathan",
+                start: "top 80%",
+                toggleActions: "play pause resume pause"
+            }
+        });
+    };
 </script>
+<script src="js/enemies.js"></script>
 
 </html>

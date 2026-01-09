@@ -183,8 +183,33 @@ server.get("/about", async (req, res) => {
 });
 
 server.get("/enemies", async (req, res) => {
-    const results = await EnemiesDB.find({}, {});
-    res.json(results);
+    const results = await EnemiesDB.find({});
+
+    const info = { bugs: [], specialBugs: [], bots: [], specialBots: [], squids: [], specialSquids: [] };
+    // used to prepare the array to store the data obtained from the database
+
+    for (const doc of results) {
+        // main used to seperate the data obtained from database into each individual category
+        if (doc.bugId) info.specialBugs.push(doc);
+        // example for the ones written in the Vue that have bugId would be cateogrised into specialBugs array
+        else if (doc.botId) info.specialBots.push(doc);
+        else if (doc.squidId) info.specialSquids.push(doc);
+        else if (doc.icon === "BugsIcon") info.bugs.push(doc);
+        else if (doc.icon === "BotsIcon") info.bots.push(doc);
+        else if (doc.icon === "SquidsIcon") info.squids.push(doc);
+    }
+
+    const bugOrder = { Stalker: 0, BileTitan: 1, HiveLord: 2 };
+    // used to specify the order that i want for the bugs arrangement displayed in the webpage
+    const botOrder = { Hulks: 0, FactoryStrider: 1 };
+    const squidOrder = { Fleshmobs: 0, Leviathan: 1 };
+
+    info.specialBugs.sort((a, b) => (bugOrder[a.bugId]) - (bugOrder[b.bugId]));
+    // identify the order based on the number assigned in the order (the smallest number start from the front)
+    info.specialBots.sort((a, b) => (botOrder[a.botId]) - (botOrder[b.botId]));
+    info.specialSquids.sort((a, b) => (squidOrder[a.squidId]) - (squidOrder[b.squidId]));
+
+    res.json(info);
 });
 
 server.get("/report", async (req, res) => {
