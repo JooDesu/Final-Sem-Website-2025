@@ -178,6 +178,7 @@ var EnemiesDB = DB.create(__dirname+"/Enemies.db");
 
 server.get("/about", async (req, res) => {
     const results = await AboutDB.find({}).sort({ textId: 1 });
+    // beside looking for and find the data stored in the about.db file and impliment into it,the sort function will use to arranged with the textId in the database number arrangement
     res.json(results);
 });
 
