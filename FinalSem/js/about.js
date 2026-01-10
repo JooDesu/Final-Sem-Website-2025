@@ -70,9 +70,6 @@ function initAboutGsap(data) {
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.defaults({ markers: false });
 
-    ScrollTrigger.getAll().forEach((t) => t.kill());
-    //obtain the current webpage existed scroll trigger and remove all the previous scroll trigger 
-
     gsap.from("body", { opacity: 0, duration: 1 });
 
     (data || []).forEach((item) => {
