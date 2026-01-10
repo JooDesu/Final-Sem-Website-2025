@@ -8,6 +8,7 @@
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
+        /* adjust the object postion x-axis towards the left based on its own element width */
         width: 300px;
         height: 150px;
         z-index: 2;
@@ -62,6 +63,7 @@
     }
 
     @keyframes fill-progress {
+        /* use to set given meaning to the animation frames */
         from {
             width: 0%;
         }
