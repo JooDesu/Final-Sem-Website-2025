@@ -130,6 +130,7 @@
                 dataType: "json",
                 success: async (data) => {
                     this.bugs = Array.isArray(data.bugs) ? data.bugs : [];
+                    // alternate writing if (Array.isArray(data.bugs)) { this.bugs = data.bugs; } else { this.bugs = []; }
                     // if bug data obtain is an array proceed to upload and show or else show an empty array
                     this.specialBugs = Array.isArray(data.specialBugs) ? data.specialBugs : [];
                     this.bots = Array.isArray(data.bots) ? data.bots : [];
