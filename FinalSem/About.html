@@ -124,3 +124,43 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="js/about.js"></script> 
+<!-- <script>
+    gsap.from("body", { opacity: 0, duration: 1 });
+
+    // Register ScrollTrigger so gsap recognizes scroll-based triggers
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Optional: show markers while debugging, set to false for production
+    ScrollTrigger.defaults({ markers: false });
+
+    aboutApp.content.forEach((item) => {
+        // vueApp.content is used to access the content array in the Vue instance
+        // forEach is used to loop through each item in the content array
+        gsap.from(`#${item.textId}`, {
+            scrollTrigger: {
+                trigger: `#${item.textId}`,
+                start:"top 90%",
+                end:"bottom 10%",
+                markers: false,
+                toggleActions: "play reverse play reverse"
+                // 1.Onenter,2.Onleave,3.Onenterback,4.Onleaveback
+            },
+            x: -200,
+            opacity: 0,
+            duration: 2,
+        });
+
+        gsap.from(`#${item.imgId}`, {
+            scrollTrigger: {
+                trigger: `#${item.imgId}`,
+                start:"top 90%",
+                end:"bottom 10%",
+                markers: false,
+                toggleActions: "play reverse play reverse"
+            },
+            x: -200,
+            opacity: 0,
+            duration: 2,
+        });
+    });
+</script> -->
