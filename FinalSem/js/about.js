@@ -61,12 +61,9 @@
 // }).mount("#about");
 
 const { createApp, nextTick } = Vue;
-// next.Tick is a must need to ensure that the all the data have been completely uploaded and updated to the screen,then continue to run the later code example for gsap
+// nextTick is used to wait for the webpage element and text to be update after data changes,ensure that the content is fully loaded before running the gsap animation
 
 function initAboutGsap(data) {
-    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
-    //if there  no gsap or scroll trigger exist,return nothing and stop the code from running
-
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.defaults({ markers: false });
 
@@ -78,7 +75,7 @@ function initAboutGsap(data) {
             gsap.from(`#${item.textId}`, {
                 x: -200,
                 opacity: 0,
-                duration: 2,
+                duration: 1,
                 scrollTrigger: {
                     trigger: `#${item.textId}`,
                     start: "top 90%",
@@ -94,7 +91,7 @@ function initAboutGsap(data) {
             gsap.from(`#${item.imgId}`, {
                 x: -200,
                 opacity: 0,
-                duration: 2,
+                duration: 1,
                 scrollTrigger: {
                     trigger: `#${item.imgId}`,
                     start: "top 90%",
@@ -126,7 +123,6 @@ var aboutApp = createApp({
                 this.content = Array.isArray(data) ? data : [];
                 // if the data obtained is an array proceed to upload the data into the content variable
                 await nextTick();
-                // when the data have been fully uploaded to the screen proceed to the next code
                 initAboutGsap(this.content);
             },
         });
