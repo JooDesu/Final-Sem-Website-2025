@@ -78,9 +78,10 @@ function initAboutGsap(data) {
                 duration: 1,
                 scrollTrigger: {
                     trigger: `#${item.textId}`,
-                    start: "top 90%",
-                    end: "bottom 10%",
+                    start: "top 50%",
+                    end:"bottom 1%",
                     toggleActions: "play reverse play reverse",
+                    markers:true,
                     // 1.onEnter 2.Onleave 3.onEnterBack 4.onLeaveBack
 
                 },
@@ -94,9 +95,10 @@ function initAboutGsap(data) {
                 duration: 1,
                 scrollTrigger: {
                     trigger: `#${item.imgId}`,
-                    start: "top 90%",
-                    end: "bottom 10%",
+                    start: "top 50%",
+                    end:"bottom 1%",
                     toggleActions: "play reverse play reverse",
+                    markers:true,
                 },
             });
         }
@@ -123,9 +125,13 @@ var aboutApp = createApp({
                 this.content = Array.isArray(data) ? data : [];
                 // if the data obtained is an array proceed to upload the data into the content variable
                 await nextTick();
-                initAboutGsap(this.content);
+                // wait for the webpage element and text to be update after data changes
+                initAboutGsap(this.content)
             },
         });
     },
+    updated(){
+        initAboutGsap(this.content)
+    }
 }).mount("#about");
 

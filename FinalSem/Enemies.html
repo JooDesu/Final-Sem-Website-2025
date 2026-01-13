@@ -193,12 +193,16 @@
         // from to put it simply is the beginning of an animation,to is the end of the animation
 
         gsap.registerPlugin(ScrollTrigger);
+        ScrollTrigger.defaults({ markers:true });
 
         gsap.fromTo("#Stalker",
-            { opacity: 1 },
+            { opacity: 1 ,
+                scale:1
+            },
             {
                 opacity: 0.25,
                 duration: 0.5,
+                scale:0.5,
                 yoyo: true,
                 // yoyo main use is to reverse the animation back and usually must pair with repeat that have a number or else it would not work
                 repeat: 3,
