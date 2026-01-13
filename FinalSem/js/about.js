@@ -79,7 +79,7 @@ function initAboutGsap(data) {
                 scrollTrigger: {
                     trigger: `#${item.textId}`,
                     start: "top 50%",
-                    end:"bottom 1%",
+                    end:"bottom 10%",
                     toggleActions: "play reverse play reverse",
                     // 1.onEnter 2.Onleave 3.onEnterBack 4.onLeaveBack
                 },
@@ -94,7 +94,7 @@ function initAboutGsap(data) {
                 scrollTrigger: {
                     trigger: `#${item.imgId}`,
                     start: "top 50%",
-                    end:"bottom 1%",
+                    end:"bottom 10%",
                     toggleActions: "play reverse play reverse",
                 },
             });
