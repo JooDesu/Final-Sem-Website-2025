@@ -65,7 +65,6 @@ const { createApp, nextTick } = Vue;
 
 function initAboutGsap(data) {
     gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.getAll().forEach(t => t.kill());
     ScrollTrigger.defaults({ markers: false });
 
     gsap.from("body", { opacity: 0, duration: 1 });
@@ -124,7 +123,8 @@ var aboutApp = createApp({
                 // if the data obtained is an array proceed to upload the data into the content variable
                 await nextTick();
                 // wait for the webpage element and text to be update after data changes
-                initAboutGsap(this.content)
+                // setTimeout(() => initAboutGsap(this.content), 100);
+                initAboutGsap(this.content);
             },
         });
     },
