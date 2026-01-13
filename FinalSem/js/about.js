@@ -126,8 +126,9 @@ var aboutApp = createApp({
             },
         });
     },
-    // updated(){
-    //     initAboutGsap(this.content)
-    // }
+    updated(){
+        ScrollTrigger.refresh();
+        initAboutGsap(this.content)
+    }
 }).mount("#about");
 
