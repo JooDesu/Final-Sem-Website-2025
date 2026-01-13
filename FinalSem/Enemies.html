@@ -303,9 +303,9 @@
                 toggleActions: "play pause resume pause"
             }
         });
-        window.updated = function () {
-        ScrollTrigger.refresh();
-    };
+
+        // Recalculate start/end after images/videos finish loading
+        window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
     };
 </script>
 <script src="js/enemies.js"></script>
