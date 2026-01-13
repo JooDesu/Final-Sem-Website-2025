@@ -65,6 +65,7 @@ const { createApp, nextTick } = Vue;
 
 function initAboutGsap(data) {
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.getAll().forEach(t => t.kill());
     ScrollTrigger.defaults({ markers: false });
 
     gsap.from("body", { opacity: 0, duration: 1 });
@@ -102,6 +103,7 @@ function initAboutGsap(data) {
             });
         }
     });
+    ScrollTrigger.refresh();
 }
 
 var aboutApp = createApp({
@@ -128,7 +130,6 @@ var aboutApp = createApp({
     },
     updated(){
         ScrollTrigger.refresh();
-        initAboutGsap(this.content)
     }
 }).mount("#about");
 
