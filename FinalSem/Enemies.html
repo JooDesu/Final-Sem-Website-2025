@@ -211,20 +211,23 @@
                 scrollTrigger: {
                     trigger: "#Stalker",
                     start: "top 80%",
-                    toggleActions: "play none none reset"
+                    end:"bottom 10%",
+                    toggleActions: "play reverse play reverse"
                 }
             }
         );
 
-        gsap.to("#BileTitan", {
-            x: () => gsap.utils.random(-20, 20),
-            y: () => gsap.utils.random(-18, 18),
-            rotation: () => gsap.utils.random(-2, 2),
-            duration: 0.5,
-            yoyo: true,
-            repeat: 3,
-            ease: "none",
-            clearProps: "x,y,rotation",
+        gsap.fromTo("#BileTitan", {
+                y: 300,
+                rotation:-90,
+                opacity: 0,
+            },
+            {
+                y: 0,
+                opacity: 1,
+                rotation: 0,
+                duration: 2,
+                ease: "power4.out",
             // clearprops is needed to ensure the img position would not be altered in anyway after the animation is finish most common uses either clearprops:x,y,rotation or clearprops:transform
             scrollTrigger: {
                 trigger: "#BileTitan",
@@ -261,9 +264,9 @@
             }
         });
 
-        gsap.to("#FactoryStrider", {
-            x: -50,
-            y: 10,
+        gsap.from("#FactoryStrider", {
+            x: -100,
+            y: 30,
             rotation: -1.5,
             duration: 1,
             ease: "power4.out",
@@ -277,21 +280,26 @@
             }
         });
 
-        gsap.from("#Fleshmobs", {
-            x: -300,
-            opacity: 0,
-            scale: 0.1,
-            duration: 1.5,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: "#Fleshmobs",
-                start: "top 80%",
-                toggleActions: "play none none reset"
-            }
-        });
+        gsap.fromTo("#Fleshmobs",
+            {
+            x:-700,
+            scale:0.5,
+            },
+               {
+                x: 125,
+                scale:1.25,
+                duration: 2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#Fleshmobs",
+                    start: "top 80%",
+                    end:"bottom 10%",
+                    toggleActions: "play reverse play reverse"
+                }
+            });
 
         gsap.to("#Leviathan", {
-            y: -50,
+            y: -100,
             rotation: 1,
             duration: 2,
             ease: "power2.inOut",
@@ -304,7 +312,7 @@
             }
         });
 
-        // Recalculate start/end after images/videos finish loading
+        // // Recalculate start/end after images/videos finish loading
         window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
     };
 </script>

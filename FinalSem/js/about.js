@@ -123,7 +123,6 @@ var aboutApp = createApp({
                 // if the data obtained is an array proceed to upload the data into the content variable
                 await nextTick();
                 // wait for the webpage element and text to be update after data changes
-                // setTimeout(() => initAboutGsap(this.content), 100);
                 initAboutGsap(this.content);
             },
         });
