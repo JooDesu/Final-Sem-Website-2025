@@ -118,7 +118,7 @@
                             <video :id="botId.videoId" :src="'Videos/' + botId.videoSrc" autoplay loop muted
                                 class="img-fluid"></video>
                         </div>
-                </div>
+                    </div>
             </section>
 
             <section id="illuminates" class="container-fluid col-12">
@@ -157,14 +157,14 @@
         </main>
     </div>
 </body>
-    <footer>
-        <div class="container-fluid bg-dark bg-gradiant text-center p-3">
-            <h2>Disclaimer This Is An Unofficial Website.</h2>
-            <h2>All rights belongs to the officials publisher:Arrowhead Studio and Sony Interactive Entertainment.</h2>
-            <h2>If there is any issues feel free to contact me with the following email address: joodesu1234@gmail.com
-            </h2>
-        </div>
-    </footer>
+<footer>
+    <div class="container-fluid bg-dark bg-gradiant text-center p-3">
+        <h2>Disclaimer This Is An Unofficial Website.</h2>
+        <h2>All rights belongs to the officials publisher:Arrowhead Studio and Sony Interactive Entertainment.</h2>
+        <h2>If there is any issues feel free to contact me with the following email address: joodesu1234@gmail.com
+        </h2>
+    </div>
+</footer>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
     window.initEnemiesPage = function () {
@@ -193,16 +193,17 @@
         // from to put it simply is the beginning of an animation,to is the end of the animation
 
         gsap.registerPlugin(ScrollTrigger);
-        ScrollTrigger.defaults({ markers:true });
+        ScrollTrigger.defaults({ markers: true });
 
         gsap.fromTo("#Stalker",
-            { opacity: 1 ,
-                scale:1
+            {
+                opacity: 1,
+                scale: 1
             },
             {
                 opacity: 0.25,
                 duration: 0.5,
-                scale:0.5,
+                scale: 0.5,
                 yoyo: true,
                 // yoyo main use is to reverse the animation back and usually must pair with repeat that have a number or else it would not work
                 repeat: 3,
@@ -302,6 +303,9 @@
                 toggleActions: "play pause resume pause"
             }
         });
+    };
+    window.updated = function () {
+        ScrollTrigger.refresh();
     };
 </script>
 <script src="js/enemies.js"></script>

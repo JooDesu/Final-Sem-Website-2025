@@ -147,7 +147,4 @@
                 },
             });
         },
-        updated() {
-            ScrollTrigger.refresh();
-        },
     }).mount("#enemy");
