@@ -81,7 +81,6 @@ function initAboutGsap(data) {
                     start: "top 50%",
                     end:"bottom 1%",
                     toggleActions: "play reverse play reverse",
-                    markers:true,
                     // 1.onEnter 2.Onleave 3.onEnterBack 4.onLeaveBack
                 },
             });
@@ -97,7 +96,6 @@ function initAboutGsap(data) {
                     start: "top 50%",
                     end:"bottom 1%",
                     toggleActions: "play reverse play reverse",
-                    markers:true,
                 },
             });
         }
