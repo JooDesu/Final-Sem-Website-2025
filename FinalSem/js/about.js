@@ -83,7 +83,6 @@ function initAboutGsap(data) {
                     toggleActions: "play reverse play reverse",
                     markers:true,
                     // 1.onEnter 2.Onleave 3.onEnterBack 4.onLeaveBack
-
                 },
             });
         }
@@ -103,9 +102,6 @@ function initAboutGsap(data) {
             });
         }
     });
-
-    ScrollTrigger.refresh();
-    // refresh the scroll trigger to ensure that all the scroll trigger are working properly
 }
 
 var aboutApp = createApp({
