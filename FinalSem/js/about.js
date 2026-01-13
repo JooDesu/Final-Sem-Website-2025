@@ -126,8 +126,8 @@ var aboutApp = createApp({
             },
         });
     },
-    updated(){
-        initAboutGsap(this.content)
-    }
+    // updated(){
+    //     initAboutGsap(this.content)
+    // }
 }).mount("#about");
 
