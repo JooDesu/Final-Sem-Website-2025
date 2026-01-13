@@ -129,7 +129,7 @@ var aboutApp = createApp({
         });
     },
     updated(){
-        scrollTrigger.refresh();
+        ScrollTrigger.refresh();
     }
 }).mount("#about");
 
