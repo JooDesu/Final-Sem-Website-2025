@@ -126,7 +126,7 @@ var aboutApp = createApp({
     },
     updated(){  
         // Only refresh ScrollTrigger on updates, don't reinitialize animations
-        ScrollTrigger.refresh();
+    
     }
 }).mount("#about");
 
