@@ -118,7 +118,7 @@
                             <video :id="botId.videoId" :src="'Videos/' + botId.videoSrc" autoplay loop muted
                                 class="img-fluid"></video>
                         </div>
-                </div>
+                    </div>
             </section>
 
             <section id="illuminates" class="container-fluid col-12">
@@ -157,14 +157,14 @@
         </main>
     </div>
 </body>
-    <footer>
-        <div class="container-fluid bg-dark bg-gradiant text-center p-3">
-            <h2>Disclaimer This Is An Unofficial Website.</h2>
-            <h2>All rights belongs to the officials publisher:Arrowhead Studio and Sony Interactive Entertainment.</h2>
-            <h2>If there is any issues feel free to contact me with the following email address: joodesu1234@gmail.com
-            </h2>
-        </div>
-    </footer>
+<footer>
+    <div class="container-fluid bg-dark bg-gradiant text-center p-3">
+        <h2>Disclaimer This Is An Unofficial Website.</h2>
+        <h2>All rights belongs to the officials publisher:Arrowhead Studio and Sony Interactive Entertainment.</h2>
+        <h2>If there is any issues feel free to contact me with the following email address: joodesu1234@gmail.com
+        </h2>
+    </div>
+</footer>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
     window.initEnemiesPage = function () {
@@ -193,16 +193,17 @@
         // from to put it simply is the beginning of an animation,to is the end of the animation
 
         gsap.registerPlugin(ScrollTrigger);
-        ScrollTrigger.defaults({ markers:true });
+        ScrollTrigger.defaults({ markers: false });
 
         gsap.fromTo("#Stalker",
-            { opacity: 1 ,
-                scale:1
+            {
+                opacity: 1,
+                scale: 1
             },
             {
                 opacity: 0.25,
                 duration: 0.5,
-                scale:0.5,
+                scale: 0.5,
                 yoyo: true,
                 // yoyo main use is to reverse the animation back and usually must pair with repeat that have a number or else it would not work
                 repeat: 3,
@@ -210,24 +211,28 @@
                 scrollTrigger: {
                     trigger: "#Stalker",
                     start: "top 80%",
-                    toggleActions: "play none none reset"
+                    end:"bottom 10%",
+                    toggleActions: "play reverse play reverse"
                 }
             }
         );
 
-        gsap.to("#BileTitan", {
-            x: () => gsap.utils.random(-20, 20),
-            y: () => gsap.utils.random(-18, 18),
-            rotation: () => gsap.utils.random(-2, 2),
-            duration: 0.5,
-            yoyo: true,
-            repeat: 3,
-            ease: "none",
-            clearProps: "x,y,rotation",
+        gsap.fromTo("#BileTitan", {
+                y: 300,
+                rotation:-90,
+                opacity: 0,
+            },
+            {
+                y: 0,
+                opacity: 1,
+                rotation: 0,
+                duration: 2,
+                ease: "power4.out",
             // clearprops is needed to ensure the img position would not be altered in anyway after the animation is finish most common uses either clearprops:x,y,rotation or clearprops:transform
             scrollTrigger: {
                 trigger: "#BileTitan",
                 start: "top 80%",
+                end:"bottom 10%",
                 toggleActions: "play none none reset"
             }
         });
@@ -244,6 +249,7 @@
             scrollTrigger: {
                 trigger: "#HiveLord",
                 start: "top 80%",
+                end:"bottom 10%",
                 toggleActions: "play none none reset"
             }
         });
@@ -256,13 +262,14 @@
             scrollTrigger: {
                 trigger: "#Hulks",
                 start: "top 80%",
+                end:"bottom 10%",
                 toggleActions: "play none none reset"
             }
         });
 
-        gsap.to("#FactoryStrider", {
-            x: -50,
-            y: 10,
+        gsap.from("#FactoryStrider", {
+            x: -100,
+            y: 30,
             rotation: -1.5,
             duration: 1,
             ease: "power4.out",
@@ -272,25 +279,31 @@
             scrollTrigger: {
                 trigger: "#FactoryStrider",
                 start: "top 80%",
+                end:"bottom 10%",
                 toggleActions: "play none none reset"
             }
         });
 
-        gsap.from("#Fleshmobs", {
-            x: -300,
-            opacity: 0,
-            scale: 0.1,
-            duration: 1.5,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: "#Fleshmobs",
-                start: "top 80%",
-                toggleActions: "play none none reset"
-            }
-        });
+        gsap.fromTo("#Fleshmobs",
+            {
+            x:-700,
+            scale:0.5,
+            },
+               {
+                x: 125,
+                scale:1.25,
+                duration: 2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#Fleshmobs",
+                    start: "top 80%",
+                    end:"bottom 10%",
+                    toggleActions: "play reverse play reverse"
+                }
+            });
 
         gsap.to("#Leviathan", {
-            y: -50,
+            y: -100,
             rotation: 1,
             duration: 2,
             ease: "power2.inOut",
@@ -299,9 +312,13 @@
             scrollTrigger: {
                 trigger: "#Leviathan",
                 start: "top 80%",
+                end:"bottom 10%",
                 toggleActions: "play pause resume pause"
             }
         });
+
+        // // Recalculate start/end after images/videos finish loading
+        window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
     };
 </script>
 <script src="js/enemies.js"></script>

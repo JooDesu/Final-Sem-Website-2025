@@ -123,6 +123,9 @@
                 specialSquids: [],
             };
         },
+        updated() {
+            ScrollTrigger.refresh();
+        },
         mounted() {
             $.ajax({
                 url: "/enemies",
@@ -146,5 +149,8 @@
                     }
                 },
             });
+        },
+        updated() {
+            ScrollTrigger.refresh();
         },
     }).mount("#enemy");

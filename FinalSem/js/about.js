@@ -77,9 +77,8 @@ function initAboutGsap(data) {
                 scrollTrigger: {
                     trigger: `#${item.textId}`,
                     start: "top 50%",
-                    end:"bottom 1%",
+                    end:"bottom 10%",
                     toggleActions: "play reverse play reverse",
-                    markers:true,
                     // 1.onEnter 2.Onleave 3.onEnterBack 4.onLeaveBack
 
                 },
@@ -94,13 +93,13 @@ function initAboutGsap(data) {
                 scrollTrigger: {
                     trigger: `#${item.imgId}`,
                     start: "top 50%",
-                    end:"bottom 1%",
+                    end:"bottom 10%",
                     toggleActions: "play reverse play reverse",
-                    markers:true,
                 },
             });
         }
     });
+    ScrollTrigger.refresh();
 }
 
 var aboutApp = createApp({
@@ -121,8 +120,7 @@ var aboutApp = createApp({
                 // if the data obtained is an array proceed to upload the data into the content variable
                 await nextTick();
                 // wait for the webpage element and text to be update after data changes
-                setTimeout(() => initAboutGsap(this.content), 100);
-                // set a timeout to ensure that the content is fully loaded before running the gsap animation
+                initAboutGsap(this.content)
             },
         });
     },
