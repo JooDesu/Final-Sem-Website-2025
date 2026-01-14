@@ -122,6 +122,7 @@ var aboutApp = createApp({
                 // wait for the webpage element and text to be update after data changes
                 setTimeout(() => initAboutGsap(this.content), 500);
                 // set a timeout to ensure that the content is fully loaded before running the gsap animation
+                // to put it simpliy it is a delay function to allow the images to be loaded fully before we allow the scroll trigger to be able to run 500ms=0.5s 1s=1000ms
             },
         });
     },
