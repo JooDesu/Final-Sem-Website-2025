@@ -194,7 +194,6 @@ server.get("/enemies", async (req, res) => {
     for (const db of results) {
         // main used to seperate the data obtained from database into each individual category
         if (db.bugId) enemy.specialBugs.push(db);
-
         // example for the ones written in the Vue that have bugId would be cateogrised into specialBugs array
         else if (db.botId) enemy.specialBots.push(db);
         else if (db.squidId) enemy.specialSquids.push(db);
