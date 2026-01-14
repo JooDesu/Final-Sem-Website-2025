@@ -65,7 +65,7 @@ const { createApp, nextTick } = Vue;
 
 function initAboutGsap(data) {
     gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.defaults({ markers: true });
+    ScrollTrigger.defaults({ markers:false });
 
     gsap.from("body", { opacity: 0, duration: 1 });
 
@@ -130,7 +130,6 @@ var aboutApp = createApp({
     updated(){  
         // Only refresh ScrollTrigger on updates, don't reinitialize animations
         ScrollTrigger.refresh();
-    
     }
 }).mount("#about");
 
