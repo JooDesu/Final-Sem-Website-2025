@@ -269,19 +269,16 @@
             });
 
             gsap.from("#FactoryStrider", {
-                x: -100,
-                y: 30,
-                rotation: -1.5,
-                duration: 1,
+                x:-300,
+                duration: 2,
                 ease: "power4.out",
                 yoyo: true,
                 repeat: 1,
-                clearProps: "x,y,rotation",
                 scrollTrigger: {
                     trigger: "#FactoryStrider",
                     start: "top 80%",
                     end:"bottom 10%",
-                    toggleActions: "play none none reset"
+                    toggleActions: "play reverse play reverse"
                 }
             });
 
