@@ -11,7 +11,7 @@ var fileUpload = require("express-fileupload")
 server.use(express.static(__dirname + "/FinalSem"));
 server.use(bodyParser.urlencoded());
 server.use(bodyParser.json());
-server.use(fileUpload({limits:{fileSize:2*1024*1024}}))
+server.use(fileUpload({limits:{fileSize:10*1024*1024}}))
 
 server.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "FinalSem", "Index.html"));
