@@ -67,8 +67,6 @@ function initAboutGsap(data) {
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.defaults({ markers:false });
 
-    gsap.from("body", { opacity: 0, duration: 1 });
-
     (data || []).forEach((item) => {
         // if the data array is not empty proceed to run every single data in the array with the code below
         if (item.textId) {
@@ -122,7 +120,7 @@ var aboutApp = createApp({
                 // if the data obtained is an array proceed to upload the data into the content variable
                 await nextTick();
                 // wait for the webpage element and text to be update after data changes
-                setTimeout(() => initAboutGsap(this.content), 100);
+                setTimeout(() => initAboutGsap(this.content), 500);
                 // set a timeout to ensure that the content is fully loaded before running the gsap animation
             },
         });

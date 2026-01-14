@@ -232,12 +232,12 @@ server.post("/report", (req, res) =>{
     })
 })
 
-server.listen(8081)
-// var PORT = process.env.PORT || 8081;
-// var HOST = process.env.HOST || "0.0.0.0";
+// server.listen(8081)
+var PORT = process.env.PORT || 8081;
+var HOST = process.env.HOST || "0.0.0.0";
 
-// server.listen(PORT, HOST, function(){
-//     var displayHost = HOST === "0.0.0.0" ? "localhost" : HOST;
-//     console.log(`Server listening on http://${displayHost}:${PORT}`);
-// });
-// // main use for this section is to set the server IP address and port and display the server address in the console
+server.listen(PORT, HOST, function(){
+    var displayHost = HOST === "0.0.0.0" ? "localhost" : HOST;
+    console.log(`Server listening on http://${displayHost}:${PORT}`);
+});
+// main use for this section is to set the server IP address and port and display the server address in the console
